@@ -3,26 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cycle Mastery: The 28-Day Advantage | Vibrant Leader Academy</title>
+<title>Cycle Super Power: The 28-Day Advantage | Vibrant Leader Academy</title>
 <meta name="description" content="A 45-minute, science-backed workshop that transforms how your organisation understands, supports, and unlocks the performance of female talent.">
-<meta property="og:title" content="Cycle Mastery: The 28-Day Advantage">
+<meta property="og:title" content="Cycle Super Power: The 28-Day Advantage">
 <meta property="og:description" content="A science-backed workshop that unlocks the performance of female talent. 45 minutes. Immediately applicable tools.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://cyclemastery.com">
+<meta property="og:url" content="https://www.vibrantleaderacademy.com/cycle-super-power">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* VLA brand palette */
     --charcoal:#2B2B2B;
     --coral:#FF6347;
-    --coral-deep:#D94A30;
-    --coral-soft:#FFD4C9;
+    --coral-deep:#E84B30;
+    --coral-soft:#FFE0D6;
     --sand:#EAE3DC;
-    --sand-warm:#F2EDE6;
+    --sand-light:#F5F1ED;
     --white:#FFFFFF;
-    --muted:#6B6359;
+    --muted:#6F6A65;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -35,7 +34,7 @@
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
   }
-  .display{font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:-0.015em;line-height:1.1}
+  h1,h2,h3,h4{font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:-0.01em;line-height:1.15;color:var(--charcoal)}
   .eyebrow{
     font-family:'Montserrat',sans-serif;
     font-size:0.72rem;
@@ -45,108 +44,125 @@
     color:var(--coral);
   }
   .container{max-width:1180px;margin:0 auto;padding:0 2rem}
+  .container-wide{max-width:1320px;margin:0 auto;padding:0 2rem}
 
-  /* Top bar */
+  /* Header */
   header.top{
-    border-bottom:1px solid rgba(43,43,43,0.1);
+    border-bottom:1px solid rgba(43,43,43,0.08);
     padding:1.1rem 0;
-    background:var(--white);
+    background:rgba(255,255,255,0.95);
     position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
   }
   header.top .row{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
   header.top .brand{
     font-family:'Montserrat',sans-serif;
     font-size:1.05rem;
-    letter-spacing:0.02em;
     font-weight:700;
     color:var(--charcoal);
     text-decoration:none;
-    text-transform:uppercase;
+    letter-spacing:0.005em;
   }
-  header.top .brand span{color:var(--coral);font-weight:600}
+  header.top .brand span{color:var(--coral);font-weight:700}
   header.top nav a{
     text-decoration:none;color:var(--charcoal);
     font-family:'Montserrat',sans-serif;
-    font-size:0.82rem;letter-spacing:0.05em;font-weight:500;
+    font-size:0.85rem;letter-spacing:0.02em;font-weight:500;
     margin-left:1.75rem;
-    text-transform:uppercase;
     transition:color .2s ease;
   }
   header.top nav a:hover{color:var(--coral)}
 
-  /* Hero */
-  .hero{padding:5.5rem 0 4rem;position:relative;overflow:hidden;background:var(--white)}
-  .hero::after{
-    content:"";position:absolute;right:-200px;top:-120px;
-    width:560px;height:560px;border-radius:50%;
-    background:radial-gradient(circle at 30% 30%, var(--coral) 0%, transparent 60%);
-    opacity:0.15;pointer-events:none;
+  /* Hero — Option 1: full bleed split */
+  .hero{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    min-height:600px;
+    background:var(--white);
+    position:relative;
+    overflow:hidden;
   }
-  .hero::before{
-    content:"";position:absolute;left:-220px;bottom:-220px;
-    width:500px;height:500px;border-radius:50%;
-    background:radial-gradient(circle at 50% 50%, var(--sand) 0%, transparent 65%);
-    opacity:0.9;pointer-events:none;
+  .hero-text{
+    padding:5rem 3rem 5rem 2rem;
+    display:flex;flex-direction:column;justify-content:center;
+    position:relative;overflow:hidden;
+    max-width:740px;
+    margin-left:auto;
+    width:100%;
   }
-  .hero .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:end;position:relative;z-index:1}
+  .hero-text::after{
+    content:"";position:absolute;left:-120px;bottom:-120px;
+    width:400px;height:400px;border-radius:50%;
+    background:radial-gradient(circle, var(--coral) 0%, transparent 60%);
+    opacity:0.08;pointer-events:none;
+  }
+  .hero-text > *{position:relative;z-index:1}
   .hero h1{
-    font-size:clamp(2.6rem, 5.8vw, 5.2rem);
-    margin-top:1.5rem;
-    color:var(--charcoal);
+    font-size:clamp(2.5rem, 4.8vw, 4rem);
+    margin:1.25rem 0 1.5rem;
+    font-weight:800;
+    line-height:1.08;
   }
-  .hero h1 span.accent{color:var(--coral)}
+  .hero h1 .accent{color:var(--coral)}
   .hero .lede{
-    font-size:1.15rem;
-    color:var(--charcoal);
-    max-width:40ch;
+    font-size:1.1rem;
+    color:var(--muted);
+    max-width:42ch;
     border-left:3px solid var(--coral);
     padding-left:1.25rem;
-    margin-top:0.5rem;
-    line-height:1.65;
+    margin-bottom:2rem;
+    line-height:1.7;
+  }
+  .hero-photo{
+    background:url('eleanor-hero.jpg') center 18% / cover no-repeat;
+    background-color:var(--sand-light);
+    position:relative;
+    min-height:600px;
   }
   .meta-strip{
-    display:flex;gap:2.5rem;flex-wrap:wrap;
-    margin-top:3rem;
+    display:flex;gap:2rem;flex-wrap:wrap;
+    margin-top:0.5rem;
     padding-top:1.5rem;
     border-top:1px solid rgba(43,43,43,0.12);
     font-family:'Montserrat',sans-serif;
-    font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;
+    font-size:0.76rem;letter-spacing:0.14em;text-transform:uppercase;
     font-weight:600;
     color:var(--charcoal);
   }
   .meta-strip span{display:flex;align-items:center;gap:0.6rem}
-  .meta-strip span::before{content:"";width:8px;height:8px;background:var(--coral);border-radius:50%;display:inline-block}
+  .meta-strip span::before{content:"";width:7px;height:7px;background:var(--coral);border-radius:50%;display:inline-block}
 
-  /* CTA */
-  .cta-row{margin-top:2.25rem;display:flex;gap:0.85rem;flex-wrap:wrap;align-items:center}
+  /* Buttons */
+  .cta-row{display:flex;gap:0.85rem;flex-wrap:wrap;align-items:center;margin-bottom:2.5rem}
   .btn{
     display:inline-flex;align-items:center;gap:0.6rem;
     padding:1rem 1.75rem;
     background:var(--coral);color:var(--white);
     text-decoration:none;
     font-family:'Montserrat',sans-serif;
-    font-size:0.82rem;letter-spacing:0.08em;font-weight:600;
+    font-size:0.85rem;letter-spacing:0.05em;font-weight:600;
     text-transform:uppercase;
     border:2px solid var(--coral);
     border-radius:4px;
     transition:all .25s ease;
   }
-  .btn:hover{background:var(--coral-deep);border-color:var(--coral-deep);transform:translateY(-1px)}
+  .btn:hover{background:var(--coral-deep);border-color:var(--coral-deep);transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,99,71,0.25)}
   .btn.ghost{background:transparent;color:var(--charcoal);border-color:var(--charcoal)}
-  .btn.ghost:hover{background:var(--charcoal);color:var(--white);transform:translateY(-1px)}
-  .btn .arrow{transition:transform .2s ease;font-size:1.1em}
+  .btn.ghost:hover{background:var(--charcoal);color:var(--white);box-shadow:0 8px 20px rgba(43,43,43,0.2)}
+  .btn .arrow{transition:transform .2s ease}
   .btn:hover .arrow{transform:translateX(3px)}
 
-  /* Section base */
+  /* Sections */
   section{padding:5.5rem 0;position:relative}
-  section.alt{background:var(--sand)}
+  section.sand{background:var(--sand)}
+  section.sand-light{background:var(--sand-light)}
   .section-head{
     display:grid;grid-template-columns:1fr 1.8fr;gap:3rem;
     margin-bottom:3.5rem;align-items:start;
   }
-  .section-head h2{font-size:clamp(2rem, 3.5vw, 2.8rem);margin-top:0.75rem;color:var(--charcoal)}
-  .section-head h2 span.accent{color:var(--coral)}
-  .section-head .intro{font-size:1.05rem;color:var(--charcoal);max-width:50ch;line-height:1.75;opacity:0.85}
+  .section-head h2{font-size:clamp(2rem, 3.5vw, 2.8rem);margin-top:0.75rem;font-weight:700}
+  .section-head h2 .accent{color:var(--coral)}
+  .section-head .intro{font-size:1.05rem;color:var(--muted);max-width:50ch;line-height:1.75}
 
   /* Stats */
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -157,16 +173,17 @@
     border-top:4px solid var(--coral);
     transition:transform .3s ease, box-shadow .3s ease;
   }
-  .stat:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(43,43,43,0.08)}
+  .stat:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(43,43,43,0.08)}
   .stat .num{
     font-family:'Montserrat',sans-serif;
-    font-size:clamp(2.8rem, 5.5vw, 4.4rem);
+    font-size:clamp(2.8rem, 5.5vw, 4.2rem);
     line-height:1;
-    color:var(--coral);
+    color:var(--charcoal);
     letter-spacing:-0.02em;
-    font-weight:700;
+    font-weight:800;
   }
-  .stat .num sup{font-size:0.5em;vertical-align:super;color:var(--coral);font-weight:600;margin-left:0.05em}
+  .stat .num sup{font-size:0.5em;vertical-align:super;color:var(--coral);font-weight:700;margin-left:0.05em}
+  .stat .num .unit{font-size:0.4em;color:var(--coral);font-weight:700;letter-spacing:0.05em;margin-left:0.3em;text-transform:uppercase}
   .stat .label{
     margin-top:1rem;
     font-size:0.98rem;
@@ -182,19 +199,19 @@
     font-style:italic;letter-spacing:0.01em;
   }
 
-  /* Framework / phases */
+  /* Framework */
   .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
   .phase{
     padding:2rem 1.5rem;
     background:var(--white);
     border-radius:8px;
     position:relative;
-    min-height:300px;
+    min-height:320px;
     display:flex;flex-direction:column;
     border-top:4px solid var(--coral);
     transition:transform .3s ease, box-shadow .3s ease;
   }
-  .phase:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(43,43,43,0.08)}
+  .phase:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(43,43,43,0.1)}
   .phase .days{
     font-family:'Montserrat',sans-serif;
     font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;
@@ -202,46 +219,48 @@
   }
   .phase .season{
     font-family:'Montserrat',sans-serif;
-    font-size:1.7rem;
+    font-size:1.8rem;
     margin-top:0.6rem;
     font-weight:700;
     color:var(--charcoal);
+    letter-spacing:-0.01em;
   }
   .phase .mode{
     display:inline-block;
-    margin-top:0.8rem;
-    padding:0.35rem 0.85rem;
-    background:var(--coral);color:var(--white);
+    margin-top:0.75rem;
+    padding:0.3rem 0.85rem;
+    background:var(--coral-soft);color:var(--coral-deep);
     font-family:'Montserrat',sans-serif;
-    font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;
-    border-radius:4px;
+    font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;
+    border-radius:999px;
     font-weight:600;
+    align-self:flex-start;
   }
   .phase .body{
     margin-top:1.5rem;
-    font-size:0.94rem;
+    font-size:0.95rem;
     line-height:1.6;
     color:var(--charcoal);
   }
 
-  /* Outcomes two-column */
+  /* Outcomes */
   .outcomes{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
   .outcome-col{
-    padding:2.5rem 2rem;
+    padding:2.75rem 2rem;
     background:var(--white);
     border-radius:8px;
-    border:1px solid rgba(43,43,43,0.08);
+    border-top:4px solid var(--coral);
   }
-  .outcome-col.featured{background:var(--charcoal);color:var(--white);border-color:var(--charcoal)}
+  .outcome-col.featured{background:var(--charcoal);color:var(--white);border-top-color:var(--coral)}
+  .outcome-col.featured h3{color:var(--white)}
   .outcome-col h3{
-    font-family:'Montserrat',sans-serif;
     font-size:1.4rem;font-weight:700;
     margin-bottom:1.5rem;
     padding-bottom:1rem;
-    border-bottom:2px solid var(--coral);
+    border-bottom:1px solid rgba(43,43,43,0.15);
     color:var(--charcoal);
   }
-  .outcome-col.featured h3{color:var(--white);border-bottom-color:var(--coral)}
+  .outcome-col.featured h3{border-bottom-color:rgba(255,255,255,0.2)}
   .outcome-list{list-style:none}
   .outcome-list li{
     padding:1.1rem 0;
@@ -250,38 +269,72 @@
     font-size:1rem;
     line-height:1.55;
   }
-  .outcome-col.featured .outcome-list li{border-bottom-color:rgba(255,255,255,0.12)}
+  .outcome-col.featured .outcome-list li{border-bottom-color:rgba(255,255,255,0.15)}
   .outcome-list li:last-child{border-bottom:none}
   .outcome-list li::before{
     content:"→";
     color:var(--coral);
-    font-weight:600;
+    font-weight:700;
     flex-shrink:0;
-    font-size:1.15rem;
+    font-size:1.05rem;
   }
 
-  /* EDI + facilitator */
-  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-  .two-col > div{
+  /* EDI + Facilitator */
+  .credibility-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .edi-card{
     padding:3rem 2rem;
     background:var(--white);
     border-radius:8px;
-    border:1px solid rgba(43,43,43,0.08);
   }
-  .two-col h3{
+  .edi-card h3{
     font-family:'Montserrat',sans-serif;
-    font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;
+    font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;
     color:var(--coral);font-weight:600;
     margin-bottom:1.25rem;
   }
-  .two-col h4{
-    font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:700;
-    margin-bottom:1.25rem;line-height:1.25;
+  .edi-card h4{
+    font-size:1.65rem;font-weight:700;
+    margin-bottom:1.25rem;line-height:1.2;
     color:var(--charcoal);
   }
-  .two-col h4 span.accent{color:var(--coral)}
-  .two-col p{font-size:1rem;line-height:1.7;color:var(--charcoal)}
-  .two-col p + p{margin-top:1rem}
+  .edi-card h4 .accent{color:var(--coral)}
+  .edi-card p{font-size:1rem;line-height:1.75;color:var(--charcoal)}
+  .edi-card p + p{margin-top:1rem}
+
+  .facilitator-card{
+    background:var(--white);
+    border-radius:8px;
+    overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .facilitator-photo{
+    width:100%;
+    aspect-ratio:16/11;
+    background:url('eleanor-about.jpg') center 25% / cover no-repeat;
+    background-color:var(--sand-light);
+  }
+  .facilitator-body{
+    padding:2.5rem 2rem;
+  }
+  .facilitator-body h3{
+    font-family:'Montserrat',sans-serif;
+    font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--coral);font-weight:600;
+    margin-bottom:0.75rem;
+  }
+  .facilitator-body h4{
+    font-size:1.65rem;font-weight:700;
+    margin-bottom:0.5rem;line-height:1.2;
+    color:var(--charcoal);
+  }
+  .facilitator-body .title{
+    font-family:'Montserrat',sans-serif;
+    font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--muted);font-weight:500;
+    margin-bottom:1.25rem;
+  }
+  .facilitator-body p{font-size:1rem;line-height:1.75;color:var(--charcoal)}
+  .facilitator-body p + p{margin-top:1rem}
 
   /* Final CTA */
   .final{
@@ -292,47 +345,52 @@
   .final::before{
     content:"";position:absolute;inset:0;
     background:radial-gradient(circle at 50% 110%, var(--coral) 0%, transparent 55%);
-    opacity:0.5;
+    opacity:0.35;
   }
   .final > .container{position:relative;z-index:1}
   .final .eyebrow{color:var(--coral-soft)}
   .final h2{
-    font-family:'Montserrat',sans-serif;
-    font-size:clamp(2.2rem, 4.5vw, 3.6rem);
+    font-size:clamp(2.2rem, 4.5vw, 3.4rem);
     font-weight:700;
     margin:1rem auto 1.5rem;
-    max-width:24ch;
+    max-width:26ch;
     line-height:1.15;
+    color:var(--white);
   }
-  .final h2 span.accent{color:var(--coral)}
+  .final h2 .accent{color:var(--coral)}
   .final p{max-width:54ch;margin:0 auto 2.5rem;font-size:1.1rem;opacity:0.9;line-height:1.7}
+  .final .btn{background:var(--coral);color:var(--white);border-color:var(--coral)}
+  .final .btn:hover{background:var(--white);color:var(--charcoal);border-color:var(--white)}
   .final .btn.ghost{background:transparent;color:var(--white);border-color:var(--white)}
   .final .btn.ghost:hover{background:var(--white);color:var(--charcoal)}
+  .final .cta-row{justify-content:center;margin-bottom:0}
 
   /* Footer */
   footer{padding:2.5rem 0;font-size:0.88rem;color:var(--muted);background:var(--white);border-top:1px solid rgba(43,43,43,0.08)}
   footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;align-items:center}
-  footer a{color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--coral)}
+  footer a{color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--coral);transition:color .2s ease}
   footer a:hover{color:var(--coral)}
 
-  /* Reveal animation */
+  /* Reveal */
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
   .reveal.in{opacity:1;transform:translateY(0)}
 
   /* Responsive */
   @media (max-width: 900px){
-    .hero .grid{grid-template-columns:1fr;gap:1.5rem}
+    .hero{grid-template-columns:1fr}
+    .hero-text{padding:3.5rem 2rem;max-width:none;margin:0}
+    .hero-photo{min-height:420px;order:-1}
     .section-head{grid-template-columns:1fr;gap:1rem;margin-bottom:2.5rem}
     .stats{grid-template-columns:1fr}
     .stats-secondary{grid-template-columns:1fr}
     .phases{grid-template-columns:1fr 1fr}
     .outcomes{grid-template-columns:1fr}
-    .two-col{grid-template-columns:1fr}
+    .credibility-grid{grid-template-columns:1fr}
     header.top nav{display:none}
   }
   @media (max-width: 540px){
-    .container{padding:0 1.25rem}
-    .hero{padding:3.5rem 0 3rem}
+    .container,.container-wide{padding:0 1.25rem}
+    .hero-text{padding:3rem 1.5rem}
     section{padding:3.5rem 0}
     .phases{grid-template-columns:1fr}
     .meta-strip{gap:1.25rem}
@@ -351,47 +409,41 @@
         <a href="#research">Research</a>
         <a href="#framework">Framework</a>
         <a href="#outcomes">Outcomes</a>
-        <a href="https://calendar.app.google/UYMFokcsAmuLxZhv7" target="_blank" rel="noopener">Book a call</a>
+        <a href="#book">Book a call</a>
       </nav>
     </div>
   </div>
 </header>
 
 <section class="hero">
-  <div class="container">
-    <div class="grid">
-      <div>
-        <div class="eyebrow">Workshop · 45 minutes</div>
-        <h1 class="display">Cycle <span class="accent">Mastery</span>.<br>The 28-Day Advantage.</h1>
-      </div>
-      <div>
-        <p class="lede">
-          A science-backed workshop that transforms how your organisation understands, supports, and unlocks the performance of female talent.
-        </p>
-        <div class="cta-row">
-          <a href="https://calendar.app.google/UYMFokcsAmuLxZhv7" target="_blank" rel="noopener" class="btn">Book a discovery call <span class="arrow">→</span></a>
-          <a href="/Cycle_Mastery_-_Vibrant_Leader_Academy.pdf" class="btn ghost" download>Download one-pager</a>
-        </div>
-      </div>
+  <div class="hero-text">
+    <div class="eyebrow">Workshop · 45 minutes</div>
+    <h1>Cycle <span class="accent">Super Power</span>.<br>The 28-Day Advantage.</h1>
+    <p class="lede">
+      A science-backed workshop that transforms how your organisation understands, supports, and unlocks the performance of female talent.
+    </p>
+    <div class="cta-row">
+      <a href="#book" class="btn">Book a discovery call <span class="arrow">→</span></a>
+      <a href="/Cycle_Super_Power_-_Vibrant_Leader_Academy.pdf" class="btn ghost" download>Download one-pager</a>
     </div>
     <div class="meta-strip">
       <span>45 minutes</span>
-      <span>In-person or virtual</span>
       <span>High participation</span>
       <span>Immediately applicable tools</span>
     </div>
   </div>
+  <div class="hero-photo" role="img" aria-label="Eleanor Taylor, founder of Vibrant Leader Academy"></div>
 </section>
 
-<section id="case" class="alt">
+<section id="case" class="sand">
   <div class="container">
     <div class="section-head">
       <div>
         <div class="eyebrow">The business case</div>
-        <h2 class="display">Built for a body<br>most workplaces <span class="accent">forget</span>.</h2>
+        <h2>Built for a body<br>most workplaces <span class="accent">forget</span>.</h2>
       </div>
       <p class="intro">
-        Women make up over half the global workforce, yet most organisations still operate on a performance model built for a 24-hour hormonal cycle, not the 28-day one most women actually live. Cycle Mastery equips your female leaders with the intelligence to stop working against their biology and start working with it. Greater productivity, greater self-compassion, greater professional enjoyment.
+        Women make up over half the global workforce, yet most organisations still operate on a performance model built for a 24-hour hormonal cycle, not the 28-day one most women actually live. Cycle Super Power equips your female leaders with the intelligence to stop working against their biology and start working with it. Greater productivity, greater self-compassion, greater professional enjoyment.
       </p>
     </div>
   </div>
@@ -402,7 +454,7 @@
     <div class="section-head">
       <div>
         <div class="eyebrow">Why this matters</div>
-        <h2 class="display">The research<br>is <span class="accent">unambiguous</span>.</h2>
+        <h2>The research<br>is <span class="accent">unambiguous</span>.</h2>
       </div>
       <p class="intro">
         The cost of ignoring the menstrual cycle at work is measurable, and the appetite for change among female employees is overwhelming.
@@ -415,7 +467,7 @@
         <div class="label">of women report reduced productivity due to cycle-related symptoms.</div>
       </div>
       <div class="stat">
-        <div class="num">9 <span style="font-size:0.42em;letter-spacing:0;font-weight:400">DAYS</span></div>
+        <div class="num">9<span class="unit">days</span></div>
         <div class="label">of total productivity lost per woman per year, mostly undetected.</div>
       </div>
       <div class="stat">
@@ -439,12 +491,12 @@
   </div>
 </section>
 
-<section id="framework" class="alt">
+<section id="framework" class="sand">
   <div class="container">
     <div class="section-head">
       <div>
         <div class="eyebrow">The framework</div>
-        <h2 class="display">Four phases.<br>Four <span class="accent">performance modes</span>.</h2>
+        <h2>Four phases.<br>Four <span class="accent">performance modes</span>.</h2>
       </div>
       <p class="intro">
         The female cycle is not a liability to manage. It is a four-season calendar of cognitive strengths that, once mapped, can be aligned to the highest-value work of each week.
@@ -485,10 +537,10 @@
     <div class="section-head">
       <div>
         <div class="eyebrow">What changes</div>
-        <h2 class="display">For attendees,<br>and for the <span class="accent">organisation</span>.</h2>
+        <h2>For attendees,<br>and for the <span class="accent">organisation</span>.</h2>
       </div>
       <p class="intro">
-        Cycle Mastery is designed to deliver value in two directions at once. Personal performance for the individual leader, measurable culture and retention signals for the business.
+        Cycle Super Power is designed to deliver value in two directions at once. Personal performance for the individual leader, measurable culture and retention signals for the business.
       </p>
     </div>
 
@@ -517,20 +569,24 @@
   </div>
 </section>
 
-<section id="credibility" class="alt">
+<section id="credibility" class="sand">
   <div class="container">
-    <div class="two-col reveal">
-      <div>
+    <div class="credibility-grid reveal">
+      <div class="edi-card">
         <h3>EDI relevance</h3>
-        <h4 class="display">Menstrual health is a <span class="accent">health equity</span> issue.</h4>
+        <h4>Menstrual health is a <span class="accent">health equity</span> issue.</h4>
         <p>Women lose an estimated 9 equivalent working days per year to cycle-related presenteeism, yet it remains largely invisible in workplace wellbeing strategies.</p>
         <p>This workshop directly addresses the gap between stated EDI commitments and lived female experience, making it a credible, measurable addition to any inclusion programme.</p>
       </div>
-      <div>
-        <h3>About the facilitator</h3>
-        <h4 class="display"><span class="accent">Eleanor Taylor.</span></h4>
-        <p>20+ years of corporate experience across P&amp;G, Diageo, EssilorLuxottica, and others. Eleanor founded Vibrant Leader Academy after discovering the performance advantages of cycle awareness first-hand.</p>
-        <p>She works with female executives and entrepreneurs across multiple geographies, translating hormonal intelligence into practical leadership advantage.</p>
+      <div class="facilitator-card">
+        <div class="facilitator-photo" role="img" aria-label="Eleanor Taylor laughing"></div>
+        <div class="facilitator-body">
+          <h3>About the facilitator</h3>
+          <h4>Eleanor Taylor</h4>
+          <div class="title">Founder, Vibrant Leader Academy</div>
+          <p>20+ years of corporate experience across P&amp;G, Diageo, EssilorLuxottica, and others. Eleanor founded Vibrant Leader Academy after discovering the performance advantages of cycle awareness first-hand.</p>
+          <p>She works with female executives and entrepreneurs across multiple geographies, translating hormonal intelligence into practical leadership advantage.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -539,11 +595,11 @@
 <section id="book" class="final">
   <div class="container">
     <div class="eyebrow">Bring it into your organisation</div>
-    <h2 class="display">Forty-five minutes that<br>changes how women <span class="accent">work</span>.</h2>
-    <p>Available as a standalone workshop, an EDI programme anchor, or a leadership-development component. Bilingual options on request.</p>
-    <div class="cta-row" style="justify-content:center">
-      <a href="https://calendar.app.google/UYMFokcsAmuLxZhv7" target="_blank" rel="noopener" class="btn">Book a discovery call <span class="arrow">→</span></a>
-      <a href="/Cycle_Mastery_-_Vibrant_Leader_Academy.pdf" class="btn ghost" download>Download the one-pager</a>
+    <h2>Forty-five minutes that<br>changes how women <span class="accent">work</span>.</h2>
+    <p>Available as a standalone workshop, an EDI programme anchor, or a leadership-development component. Delivered in person or virtually, in English or with bilingual options on request.</p>
+    <div class="cta-row">
+      <a href="mailto:info@vibrantleaderacademy.com?subject=Cycle%20Super%20Power%20%E2%80%94%20Workshop%20enquiry" class="btn">Book a discovery call <span class="arrow">→</span></a>
+      <a href="/Cycle_Super_Power_-_Vibrant_Leader_Academy.pdf" class="btn ghost" download>Download the one-pager</a>
     </div>
   </div>
 </section>
@@ -551,7 +607,7 @@
 <footer>
   <div class="container">
     <div class="row">
-      <div>© Cycle Mastery, a Vibrant Leader Academy initiative.</div>
+      <div>© Vibrant Leader Academy. All rights reserved.</div>
       <div>
         <a href="https://www.vibrantleaderacademy.com">vibrantleaderacademy.com</a>
         &nbsp;·&nbsp;
