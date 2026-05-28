@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cycle Super Power: The 28-Day Advantage | Vibrant Leader Academy</title>
+<title>Cycle Mastery: The 28-Day Advantage | Vibrant Leader Academy</title>
 <meta name="description" content="A 45-minute, science-backed workshop that transforms how your organisation understands, supports, and unlocks the performance of female talent.">
-<meta property="og:title" content="Cycle Super Power: The 28-Day Advantage">
+<meta property="og:title" content="Cycle Mastery: The 28-Day Advantage">
 <meta property="og:description" content="A science-backed workshop that unlocks the performance of female talent. 45 minutes. Immediately applicable tools.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.vibrantleaderacademy.com/cycle-super-power">
+<meta property="og:url" content="https://cyclemastery.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -114,7 +114,7 @@
     line-height:1.7;
   }
   .hero-photo{
-    background:url('eleanor-hero.jpg') center 18% / cover no-repeat;
+    background:url('/eleanor-hero.jpg') center 18% / cover no-repeat;
     background-color:var(--sand-light);
     position:relative;
     min-height:600px;
@@ -310,7 +310,7 @@
   .facilitator-photo{
     width:100%;
     aspect-ratio:16/11;
-    background:url('eleanor-about.jpg') center 25% / cover no-repeat;
+    background:url('/eleanor-about.jpg') center 25% / cover no-repeat;
     background-color:var(--sand-light);
   }
   .facilitator-body{
@@ -397,6 +397,94 @@
     .cta-row{flex-direction:column;align-items:stretch}
     .cta-row .btn{justify-content:center}
   }
+
+  /* ============================================================
+     PRINT / SAVE-AS-PDF  —  forces the whole page onto ONE A4 sheet.
+     Only applies when printing. The on-screen site is untouched.
+     ============================================================ */
+  @media print{
+    @page{ size:A4 portrait; margin:0; }
+
+    *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+
+    html,body{
+      width:210mm; height:297mm;
+      background:var(--white) !important;
+      font-size:7.6px !important;
+      line-height:1.34 !important;
+    }
+
+    /* hide things that make no sense on paper */
+    header.top, .cta-row, .meta-strip{ display:none !important; }
+
+    /* kill animations so nothing prints faded out */
+    .reveal{ opacity:1 !important; transform:none !important; }
+
+    /* collapse the big vertical rhythm */
+    section{ padding:5mm 0 !important; }
+    .container,.container-wide{ max-width:none !important; padding:0 11mm !important; }
+    .section-head{ margin-bottom:4mm !important; gap:6mm !important; }
+
+    /* HERO — keep the split, shrink it */
+    .hero{ min-height:0 !important; height:60mm !important; }
+    .hero-text{ padding:0 6mm 0 11mm !important; max-width:none !important; }
+    .hero h1{ font-size:24px !important; margin:4px 0 6px !important; }
+    .hero .lede{ font-size:9px !important; margin-bottom:0 !important; }
+    .hero-photo{ min-height:0 !important; height:60mm !important; }
+
+    /* headings down a notch */
+    .section-head h2{ font-size:15px !important; margin-top:3px !important; }
+    .section-head .intro{ font-size:8px !important; line-height:1.45 !important; }
+    .eyebrow{ font-size:6px !important; }
+
+    /* STATS row */
+    .stats{ gap:4px !important; }
+    .stats-secondary{ display:none !important; }   /* drop the 2 secondary stats to save height */
+    .stat{ padding:8px 8px !important; border-top-width:3px !important; }
+    .stat .num{ font-size:22px !important; }
+    .stat .label{ font-size:7px !important; margin-top:5px !important; }
+    .sources{ margin-top:5px !important; font-size:6px !important; }
+
+    /* FRAMEWORK */
+    .phases{ gap:4px !important; }
+    .phase{ min-height:0 !important; padding:8px 9px !important; border-top-width:3px !important; }
+    .phase .season{ font-size:14px !important; margin-top:2px !important; }
+    .phase .days{ font-size:6px !important; }
+    .phase .mode{ font-size:5.5px !important; margin-top:4px !important; padding:2px 6px !important; }
+    .phase .body{ font-size:6.6px !important; margin-top:6px !important; line-height:1.35 !important; }
+
+    /* OUTCOMES */
+    .outcomes{ gap:5mm !important; }
+    .outcome-col{ padding:10px 12px !important; border-top-width:3px !important; }
+    .outcome-col h3{ font-size:11px !important; margin-bottom:6px !important; padding-bottom:5px !important; }
+    .outcome-list li{ padding:3px 0 !important; font-size:7px !important; line-height:1.35 !important; }
+
+    /* EDI + FACILITATOR */
+    .credibility-grid{ gap:6mm !important; }
+    .edi-card, .facilitator-card{ padding:0 !important; }
+    .edi-card{ padding:10px 12px !important; }
+    .edi-card h4{ font-size:13px !important; margin-bottom:8px !important; }
+    .edi-card p{ font-size:7.5px !important; line-height:1.45 !important; }
+    .edi-card p + p{ margin-top:6px !important; }
+    .facilitator-card{ flex-direction:row !important; overflow:hidden !important; }
+    .facilitator-photo{ width:34% !important; aspect-ratio:auto !important; min-height:0 !important; }
+    .facilitator-body{ padding:10px 12px !important; }
+    .facilitator-body h4{ font-size:13px !important; }
+    .facilitator-body p{ font-size:7.5px !important; line-height:1.45 !important; }
+    .facilitator-body .title{ font-size:6.5px !important; margin-bottom:8px !important; }
+
+    /* FINAL dark CTA band — shrink, drop the now-hidden buttons */
+    .final{ padding:6mm 0 !important; }
+    .final h2{ font-size:16px !important; margin:6px auto 0 !important; }
+    .final p{ font-size:8px !important; margin:6px auto 0 !important; }
+
+    footer{ padding:4mm 0 !important; font-size:7px !important; }
+
+    /* never let a block split across the (non-existent) page break */
+    section, .stat, .phase, .outcome-col, .edi-card, .facilitator-card{
+      break-inside:avoid !important; page-break-inside:avoid !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -418,13 +506,13 @@
 <section class="hero">
   <div class="hero-text">
     <div class="eyebrow">Workshop · 45 minutes</div>
-    <h1>Cycle <span class="accent">Super Power</span>.<br>The 28-Day Advantage.</h1>
+    <h1>Cycle <span class="accent">Mastery</span>.<br>The 28-Day Advantage.</h1>
     <p class="lede">
       A science-backed workshop that transforms how your organisation understands, supports, and unlocks the performance of female talent.
     </p>
     <div class="cta-row">
       <a href="#book" class="btn">Book a discovery call <span class="arrow">→</span></a>
-      <a href="/Cycle_Super_Power_-_Vibrant_Leader_Academy.pdf" class="btn ghost" download>Download one-pager</a>
+      <a href="/Cycle_Mastery_-_Vibrant_Leader_Academy.pdf" class="btn ghost" download>Download one-pager</a>
     </div>
     <div class="meta-strip">
       <span>45 minutes</span>
@@ -443,7 +531,7 @@
         <h2>Built for a body<br>most workplaces <span class="accent">forget</span>.</h2>
       </div>
       <p class="intro">
-        Women make up over half the global workforce, yet most organisations still operate on a performance model built for a 24-hour hormonal cycle, not the 28-day one most women actually live. Cycle Super Power equips your female leaders with the intelligence to stop working against their biology and start working with it. Greater productivity, greater self-compassion, greater professional enjoyment.
+        Women make up over half the global workforce, yet most organisations still operate on a performance model built for a 24-hour hormonal cycle, not the 28-day one most women actually live. Cycle Mastery equips your female leaders with the intelligence to stop working against their biology and start working with it. Greater productivity, greater self-compassion, greater professional enjoyment.
       </p>
     </div>
   </div>
@@ -540,7 +628,7 @@
         <h2>For attendees,<br>and for the <span class="accent">organisation</span>.</h2>
       </div>
       <p class="intro">
-        Cycle Super Power is designed to deliver value in two directions at once. Personal performance for the individual leader, measurable culture and retention signals for the business.
+        Cycle Mastery is designed to deliver value in two directions at once. Personal performance for the individual leader, measurable culture and retention signals for the business.
       </p>
     </div>
 
@@ -599,7 +687,7 @@
     <p>Available as a standalone workshop, an EDI programme anchor, or a leadership-development component. Delivered in person or virtually, in English or with bilingual options on request.</p>
     <div class="cta-row">
       <a href="mailto:info@vibrantleaderacademy.com?subject=Cycle%20Super%20Power%20%E2%80%94%20Workshop%20enquiry" class="btn">Book a discovery call <span class="arrow">→</span></a>
-      <a href="/Cycle_Super_Power_-_Vibrant_Leader_Academy.pdf" class="btn ghost" download>Download the one-pager</a>
+      <a href="/Cycle_Mastery_-_Vibrant_Leader_Academy.pdf" class="btn ghost" download>Download the one-pager</a>
     </div>
   </div>
 </section>
