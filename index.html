@@ -77,13 +77,13 @@
   .hero{
     display:grid;
     grid-template-columns:1.1fr 1fr;
-    min-height:600px;
+    min-height:480px;
     background:var(--white);
     position:relative;
     overflow:hidden;
   }
   .hero-text{
-    padding:5rem 3rem 5rem 2rem;
+    padding:3rem 3rem 3rem 2rem;
     display:flex;flex-direction:column;justify-content:center;
     position:relative;overflow:hidden;
     max-width:740px;
@@ -117,7 +117,7 @@
     background:url('/eleanor-hero.jpg') center 18% / cover no-repeat;
     background-color:var(--sand-light);
     position:relative;
-    min-height:600px;
+    min-height:480px;
   }
   .meta-strip{
     display:flex;gap:2rem;flex-wrap:wrap;
@@ -153,12 +153,12 @@
   .btn:hover .arrow{transform:translateX(3px)}
 
   /* Sections */
-  section{padding:5.5rem 0;position:relative}
+  section{padding:4rem 0;position:relative}
   section.sand{background:var(--sand)}
   section.sand-light{background:var(--sand-light)}
   .section-head{
     display:grid;grid-template-columns:1fr 1.8fr;gap:3rem;
-    margin-bottom:3.5rem;align-items:start;
+    margin-bottom:2.5rem;align-items:start;
   }
   .section-head h2{font-size:clamp(2rem, 3.5vw, 2.8rem);margin-top:0.75rem;font-weight:700}
   .section-head h2 .accent{color:var(--coral)}
@@ -339,7 +339,7 @@
   /* Final CTA */
   .final{
     background:var(--charcoal);color:var(--white);
-    padding:6rem 0;
+    padding:4.5rem 0;
     text-align:center;position:relative;overflow:hidden;
   }
   .final::before{
@@ -646,8 +646,7 @@
       <div class="outcome-col featured">
         <h3>Organisational outcomes</h3>
         <ul class="outcome-list">
-          <li>Reduced presenteeism and unplanned absence among female employees</li>
-          <li>Stronger retention of senior female talent by addressing a genuine unmet need</li>
+          <li>Aligned, motivated female employees with consistent delivery</li>
           <li>A tangible, evidence-based contribution to your EDI agenda and women's health equity</li>
           <li>Improved team performance through better-timed communication and decision-making</li>
           <li>A culture signal: your organisation sees and supports the whole person</li>
@@ -686,7 +685,7 @@
     <h2>Forty-five minutes that<br>changes how women <span class="accent">work</span>.</h2>
     <p>Available as a standalone workshop, an EDI programme anchor, or a leadership-development component. Delivered in person or virtually, in English or with bilingual options on request.</p>
     <div class="cta-row">
-      <a href="mailto:info@vibrantleaderacademy.com?subject=Cycle%20Super%20Power%20%E2%80%94%20Workshop%20enquiry" class="btn">Book a discovery call <span class="arrow">→</span></a>
+      <a href="mailto:info@vibrantleaderacademy.com?subject=Cycle%20Mastery%20%E2%80%94%20Workshop%20enquiry" class="btn">Book a discovery call <span class="arrow">→</span></a>
       <a href="/Cycle_Mastery_-_Vibrant_Leader_Academy.pdf" class="btn ghost" download>Download the one-pager</a>
     </div>
   </div>
@@ -706,10 +705,18 @@
 </footer>
 
 <script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // Reveal-on-scroll with a safety fallback: if IntersectionObserver isn't
+  // supported, show everything immediately so no section ever stays blank.
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    // Failsafe: reveal anything still hidden after 2s
+    setTimeout(() => document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in')), 2000);
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
 </script>
 
 </body>
