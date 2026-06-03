@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 4 Seasons of Your Cycle — Handout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --charcoal:#2B2B2B; --coral:#FF6347; --sand:#EAE3DC;
+  --winter:#3E6188; --winter-t:#E5ECF3;
+  --spring:#4F8A52; --spring-t:#E6F0E3;
+  --summer:#FF6347; --summer-t:#FDE6E0;
+  --autumn:#C2772E; --autumn-t:#F6EAD7;
+  --head:'Montserrat',-apple-system,Segoe UI,Roboto,sans-serif;
+  --body:'Lato',-apple-system,Segoe UI,Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#e9e9e9}
+body{font-family:var(--body);color:var(--charcoal);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{width:297mm;height:210mm;margin:14px auto;background:#fff;padding:9mm 10mm;
+  box-shadow:0 8px 30px rgba(0,0,0,.18);display:flex;flex-direction:column}
+
+.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--coral);padding-bottom:6px}
+.top h1{font-family:var(--head);font-weight:800;font-size:25px;line-height:1.02}
+.top .sub{font-size:12px;color:#666;margin-top:2px}
+.top .brand{font-family:var(--head);font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9a948e;text-align:right}
+
+.caveat{margin-top:8px;background:var(--sand);border-radius:7px;padding:8px 14px;display:flex;gap:14px;align-items:baseline}
+.caveat .big{font-family:var(--head);font-weight:800;font-size:14px;color:var(--coral);white-space:nowrap}
+.caveat .txt{font-size:11.5px;line-height:1.38;color:#3a3733}
+
+.maplab{font-family:var(--head);font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:#9a948e;margin:8px 0 1px}
+.map svg{display:block;width:100%;height:auto}
+
+.grid{margin-top:8px;display:grid;grid-template-columns:repeat(4,1fr);gap:9px;flex:1;min-height:0}
+.card{border:1.5px solid #eee;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;break-inside:avoid}
+.chead{padding:7px 12px;color:#fff}
+.chead .cs{font-family:var(--head);font-weight:800;font-size:18px;line-height:1}
+.chead .cp{font-family:var(--head);font-weight:700;font-size:8.5px;letter-spacing:.06em;opacity:.93;margin-top:2px}
+.cbody{padding:9px 12px 10px;flex:1;display:flex;flex-direction:column}
+
+.meter{display:flex;align-items:center;gap:7px;margin-bottom:9px}
+.meter .ml{font-family:var(--head);font-weight:800;font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;flex:0 0 42px}
+.meter .track{flex:1;height:9px;background:rgba(0,0,0,.10);border-radius:6px;overflow:hidden}
+.meter .fill{display:block;height:100%;border-radius:6px}
+.meter .pct{font-family:var(--head);font-size:8.5px;font-weight:700;color:#777;flex:0 0 46px;text-align:right;text-transform:uppercase;letter-spacing:.03em}
+
+.rows{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.row{font-size:11px;line-height:1.33}
+.row .lab{font-family:var(--head);font-weight:800;font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;display:block;margin-bottom:1px}
+
+.win .chead{background:var(--winter)} .win .cbody{background:var(--winter-t)} .win .lab,.win .ml{color:var(--winter)} .win .fill{background:var(--winter)}
+.spr .chead{background:var(--spring)} .spr .cbody{background:var(--spring-t)} .spr .lab,.spr .ml{color:var(--spring)} .spr .fill{background:var(--spring)}
+.sum .chead{background:var(--summer)} .sum .cbody{background:var(--summer-t)} .sum .lab,.sum .ml{color:var(--summer)} .sum .fill{background:var(--summer)}
+.aut .chead{background:var(--autumn)} .aut .cbody{background:var(--autumn-t)} .aut .lab,.aut .ml{color:var(--autumn)} .aut .fill{background:var(--autumn)}
+
+.foot{margin-top:8px;border-top:1.5px solid #eee;padding-top:7px;text-align:center}
+.foot .remember{font-size:11px;line-height:1.4;color:#3a3733}
+.foot .remember b{font-family:var(--head);font-weight:800;color:var(--coral);letter-spacing:.04em}
+
+@page{size:A4 landscape;margin:0}
+@media print{ html,body{background:#fff;height:100%} .sheet{box-shadow:none;margin:0;width:297mm;height:210mm;padding:9mm 10mm;overflow:hidden} }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div>
+      <h1>The 4 Seasons of Your Cycle</h1>
+      <div class="sub">A map of how your hormones move across the month, and how to work with each season.</div>
+    </div>
+    <div class="brand">Vibrant Leader<br>Academy</div>
+  </div>
+
+  <div class="caveat">
+    <div class="big">Information, not instructions.</div>
+    <div class="txt">About 28 days is an <b>average</b>, and at your age an irregular cycle is completely normal. These seasons are a map, not a timetable. They tell you how you <i>might</i> feel, never what you are allowed to do, achieve or decide.</div>
+  </div>
+
+  <div class="maplab">Your hormones across the month</div>
+  <div class="map">
+    <svg viewBox="0 0 1100 212" font-family="'Lato',sans-serif">
+      <rect x="14" y="40" width="150" height="128" rx="13" fill="#E5ECF3"></rect>
+      <rect x="174" y="40" width="340" height="128" rx="13" fill="#E6F0E3"></rect>
+      <rect x="524" y="40" width="160" height="128" rx="13" fill="#FDE6E0"></rect>
+      <rect x="694" y="40" width="392" height="128" rx="13" fill="#F6EAD7"></rect>
+      <line x1="14" y1="168" x2="1086" y2="168" stroke="#D8D2CC" stroke-width="1"></line>
+      <circle cx="330" cy="18" r="6" fill="#FF6347"></circle><text x="343" y="23" font-size="15" fill="#2B2B2B">Oestrogen</text>
+      <circle cx="470" cy="18" r="6" fill="#C2772E"></circle><text x="483" y="23" font-size="15" fill="#2B2B2B">Progesterone</text>
+      <circle cx="640" cy="18" r="6" fill="#2B2B2B"></circle><text x="653" y="23" font-size="15" fill="#2B2B2B">Testosterone</text>
+      <path d="M30,166 C200,164 380,160 540,156 C580,153 600,138 615,141 C660,152 850,164 1086,167" fill="none" stroke="#2B2B2B" stroke-width="3" stroke-linecap="round"></path>
+      <path d="M30,166 C300,164 520,162 560,158 C620,150 700,78 800,72 C880,80 970,150 1086,164" fill="none" stroke="#C2772E" stroke-width="4" stroke-linecap="round"></path>
+      <path d="M30,162 C160,156 320,140 450,118 C520,104 575,64 610,58 C650,72 690,112 740,130 C800,148 845,120 880,114 C950,126 1015,152 1086,160" fill="none" stroke="#FF6347" stroke-width="5.5" stroke-linecap="round"></path>
+      <g text-anchor="middle">
+        <text x="89" y="186" font-size="11" fill="#888">PERIOD</text>
+        <text x="344" y="186" font-size="11" fill="#888">FOLLICULAR</text>
+        <text x="604" y="186" font-size="11" fill="#888">OVULATION</text>
+        <text x="890" y="186" font-size="11" fill="#888">LUTEAL</text>
+      </g>
+      <g font-family="'Montserrat','Lato',sans-serif" font-weight="800" text-anchor="middle" font-size="16">
+        <text x="89" y="206" fill="#3E6188">WINTER</text>
+        <text x="344" y="206" fill="#4F8A52">SPRING</text>
+        <text x="604" y="206" fill="#FF6347">SUMMER</text>
+        <text x="890" y="206" fill="#C2772E">AUTUMN</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="grid">
+    <div class="card win">
+      <div class="chead"><div class="cs">Winter</div><div class="cp">MENSTRUATION</div></div>
+      <div class="cbody">
+        <div class="meter"><span class="ml">Energy</span><span class="track"><span class="fill" style="width:15%"></span></span><span class="pct">Low</span></div>
+        <div class="rows">
+          <div class="row"><span class="lab">Body</span>Hormones at their lowest. Often the most tired week.</div>
+          <div class="row"><span class="lab">Mind</span>"Everything feels like a mountain." Recovery, not laziness.</div>
+          <div class="row"><span class="lab">School</span>Low-stakes: review, organise, flashcards.</div>
+          <div class="row"><span class="lab">Move</span>Gentle movement eases cramps. Rest is fine.</div>
+          <div class="row"><span class="lab">Social</span>Running near empty. Saying no to plans is fine.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card spr">
+      <div class="chead"><div class="cs">Spring</div><div class="cp">FOLLICULAR</div></div>
+      <div class="cbody">
+        <div class="meter"><span class="ml">Energy</span><span class="track"><span class="fill" style="width:78%"></span></span><span class="pct">Rising</span></div>
+        <div class="rows">
+          <div class="row"><span class="lab">Body</span>Oestrogen climbing. Energy and motivation rise.</div>
+          <div class="row"><span class="lab">Mind</span>"I can handle this." Optimistic and capable.</div>
+          <div class="row"><span class="lab">School</span>Front-load: start essays, tackle hard topics.</div>
+          <div class="row"><span class="lab">Move</span>Good for harder training or a new sport.</div>
+          <div class="row"><span class="lab">Social</span>Opening up. Keen to join in and speak up.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card sum">
+      <div class="chead"><div class="cs">Summer</div><div class="cp">OVULATION</div></div>
+      <div class="cbody">
+        <div class="meter"><span class="ml">Energy</span><span class="track"><span class="fill" style="width:95%"></span></span><span class="pct">Peak</span></div>
+        <div class="rows">
+          <div class="row"><span class="lab">Body</span>Oestrogen peaks, brief testosterone rise. Confidence high.</div>
+          <div class="row"><span class="lab">Mind</span>"Ready to be seen." Magnetic and persuasive.</div>
+          <div class="row"><span class="lab">School</span>Presentations, debates, interviews.</div>
+          <div class="row"><span class="lab">Move</span>Strong for competition. Warm up well.</div>
+          <div class="row"><span class="lab">Social</span>Full charge. The life of the group.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card aut">
+      <div class="chead"><div class="cs">Autumn</div><div class="cp">LUTEAL</div></div>
+      <div class="cbody">
+        <div class="meter"><span class="ml">Energy</span><span class="track"><span class="fill" style="width:40%"></span></span><span class="pct">Dipping</span></div>
+        <div class="rows">
+          <div class="row"><span class="lab">Body</span>Oestrogen drops. The brain starts hunting for flaws.</div>
+          <div class="row"><span class="lab">Mind</span>Inner Critic and Mirror Lie. Not facts: "look again in 5 days."</div>
+          <div class="row"><span class="lab">School</span>Edit, proofread and finish, rather than start.</div>
+          <div class="row"><span class="lab">Move</span>Maintenance, not gains. Keep it steady.</div>
+          <div class="row"><span class="lab">Social</span>Patience runs thin. Friendship friction flares.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="remember"><b>REMEMBER:</b> pain or low mood that wrecks your month is not something to just put up with. It is worth talking to a parent, the school nurse or a doctor.</div>
+  </div>
+
+</div>
+</body>
+</html>
