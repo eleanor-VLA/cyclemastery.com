@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find Your Seasons — Cycle Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --charcoal:#2B2B2B; --coral:#FF6347; --sand:#EAE3DC;
+  --winter:#3E6188; --winter-t:#E5ECF3;
+  --spring:#4F8A52; --spring-t:#E6F0E3;
+  --summer:#FF6347; --summer-t:#FDE6E0;
+  --autumn:#C2772E; --autumn-t:#F6EAD7;
+  --head:'Montserrat',-apple-system,Segoe UI,Roboto,sans-serif;
+  --body:'Lato',-apple-system,Segoe UI,Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);color:var(--charcoal);background:#f4f1ed;line-height:1.5;padding:22px 16px 60px}
+.wrap{max-width:780px;margin:0 auto}
+
+header{text-align:center;margin-bottom:18px}
+header .brand{font-family:var(--head);font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9a948e}
+header h1{font-family:var(--head);font-weight:800;font-size:32px;line-height:1.05;margin:6px 0 4px}
+header p{font-size:15px;color:#666;max-width:520px;margin:0 auto}
+
+.card{background:#fff;border-radius:16px;box-shadow:0 6px 22px rgba(0,0,0,.06);padding:22px 22px;margin-bottom:18px}
+
+.controls{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-end}
+.field{flex:1;min-width:200px}
+.field label{display:block;font-family:var(--head);font-weight:700;font-size:13px;margin-bottom:7px}
+.field .hint{font-weight:400;color:#999;font-size:12px}
+.lenrow{display:flex;align-items:center;gap:14px}
+input[type=range]{flex:1;accent-color:var(--coral)}
+.lenval{font-family:var(--head);font-weight:800;font-size:26px;color:var(--coral);min-width:96px}
+.lenval small{font-size:13px;color:#888;font-weight:700}
+input[type=date]{font-family:var(--body);font-size:15px;padding:10px 12px;border:1.5px solid #e0dad2;border-radius:10px;width:100%;color:var(--charcoal)}
+
+/* today banner */
+.today{display:none;margin-bottom:18px;border-radius:16px;padding:18px 22px;color:#fff;text-align:center}
+.today.show{display:block}
+.today .lbl{font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.92}
+.today .big{font-family:var(--head);font-weight:800;font-size:28px;margin:3px 0 2px}
+.today .meta{font-size:14px;opacity:.95}
+
+/* season bar */
+.barwrap{margin-top:4px}
+.bar{display:flex;height:54px;border-radius:11px;overflow:hidden}
+.bar div{display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--head);font-weight:800;font-size:13px;min-width:0}
+.bar .bw{background:var(--winter)} .bar .bsp{background:var(--spring)} .bar .bsu{background:var(--summer)} .bar .bau{background:var(--autumn)}
+.barscale{display:flex;justify-content:space-between;font-size:11px;color:#999;margin-top:5px;font-family:var(--head);font-weight:700}
+
+/* season result cards */
+.seasons{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:4px}
+.s{border-radius:13px;overflow:hidden;border:1.5px solid #eee}
+.s .sh{padding:11px 15px;color:#fff;display:flex;justify-content:space-between;align-items:baseline}
+.s .sh .nm{font-family:var(--head);font-weight:800;font-size:18px}
+.s .sh .dy{font-family:var(--head);font-weight:800;font-size:13px;opacity:.95}
+.s .sb{padding:11px 15px;font-size:13.5px}
+.s .dates{font-family:var(--head);font-weight:800;font-size:13px;color:var(--charcoal);margin-bottom:5px;display:none}
+.s .dates.show{display:block}
+.sw .sh{background:var(--winter)} .sw .sb{background:var(--winter-t)}
+.ssp .sh{background:var(--spring)} .ssp .sb{background:var(--spring-t)}
+.ssu .sh{background:var(--summer)} .ssu .sb{background:var(--summer-t)}
+.sau .sh{background:var(--autumn)} .sau .sb{background:var(--autumn-t)}
+
+.caveat{font-size:12.5px;line-height:1.5;color:#5a564f;background:var(--sand);border-radius:12px;padding:13px 16px}
+.caveat b{font-family:var(--head);color:var(--coral)}
+footer{text-align:center;font-size:11px;color:#aaa;margin-top:6px}
+
+@media(max-width:560px){
+  .seasons{grid-template-columns:1fr}
+  header h1{font-size:26px}
+  .bar div{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">Vibrant Leader Academy</div>
+    <h1>Find Your Seasons</h1>
+    <p>Enter your cycle length to see where Winter, Spring, Summer and Autumn fall for you.</p>
+  </header>
+
+  <div class="card">
+    <div class="controls">
+      <div class="field">
+        <label>Your cycle length <span class="hint">(Day 1 to the day before your next period)</span></label>
+        <div class="lenrow">
+          <input type="range" id="len" min="21" max="45" value="28">
+          <div class="lenval"><span id="lenN">28</span> <small>days</small></div>
+        </div>
+      </div>
+      <div class="field">
+        <label>First day of your last period <span class="hint">(optional, for dates)</span></label>
+        <input type="date" id="d1">
+      </div>
+    </div>
+  </div>
+
+  <div class="today" id="today">
+    <div class="lbl">Right now you are in</div>
+    <div class="big" id="todaySeason">&mdash;</div>
+    <div class="meta" id="todayMeta"></div>
+  </div>
+
+  <div class="card">
+    <div class="barwrap">
+      <div class="bar" id="bar"></div>
+      <div class="barscale"><span>Day 1</span><span id="barEnd">Day 28</span></div>
+    </div>
+  </div>
+
+  <div class="seasons" id="seasons"></div>
+
+  <div class="card" style="padding:0;background:transparent;box-shadow:none;margin-top:2px">
+    <div class="caveat"><b>Information, not instructions.</b> These are estimates from your cycle length, and ovulation timing varies. When you first start menstruating, cycles are often irregular, so treat this as a starting map and let your own tracking show you the real pattern. It tells you how you might feel, never what you are allowed to do.</div>
+  </div>
+  <footer>cyclemastery.com</footer>
+
+</div>
+
+<script>
+var SEASON = {
+  w:  {key:'w',  cls:'sw',  bcls:'bw',  name:'Winter', phase:'Menstruation', col:'#3E6188',
+       text:'Lowest energy. A week to rest, review and be kind to yourself.'},
+  sp: {key:'sp', cls:'ssp', bcls:'bsp', name:'Spring', phase:'Follicular', col:'#4F8A52',
+       text:'Energy rising. Great for starting things, learning fast and saying yes.'},
+  su: {key:'su', cls:'ssu', bcls:'bsu', name:'Summer', phase:'Ovulation', col:'#FF6347',
+       text:'Peak confidence. Speak up, perform, compete and connect.'},
+  au: {key:'au', cls:'sau', bcls:'bau', name:'Autumn', phase:'Luteal', col:'#C2772E',
+       text:'Winding down. Finish and tidy, and do not trust the inner critic.'}
+};
+
+function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+
+function compute(L){
+  var periodLen = clamp(Math.round(L/6), 3, 7);
+  var O = clamp(L - 14, periodLen+2, L-3);   // ovulation day
+  var suW = L >= 28 ? 4 : (L <= 24 ? 2 : 3);   // ovulation window shrinks on shorter cycles
+  var suEnd = O+1, suStart = suEnd - suW + 1;
+  var ranges = {
+    w:  [1, periodLen],
+    sp: [periodLen+1, suStart-1],
+    su: [suStart, suEnd],   // 2 to 4 "magnetism" days, scaled to length
+    au: [O+2, L]
+  };
+  // guard against inversions on very short cycles
+  if(ranges.sp[1] < ranges.sp[0]) ranges.sp = [periodLen+1, periodLen+1];
+  return ranges;
+}
+
+function fmtRange(r){ return r[0]===r[1] ? ('Day '+r[0]) : ('Days '+r[0]+'–'+r[1]); }
+
+function addDays(date, n){ var d=new Date(date.getTime()); d.setDate(d.getDate()+n); return d; }
+function fmtDate(d){ return d.toLocaleDateString(undefined,{day:'numeric',month:'short'}); }
+
+function render(){
+  var L = parseInt(document.getElementById('len').value,10);
+  document.getElementById('lenN').textContent = L;
+  document.getElementById('barEnd').textContent = 'Day '+L;
+  var R = compute(L);
+  var order = ['w','sp','su','au'];
+
+  // bar
+  var bar = document.getElementById('bar'); bar.innerHTML='';
+  order.forEach(function(k){
+    var r=R[k], days=r[1]-r[0]+1;
+    var el=document.createElement('div');
+    el.className=SEASON[k].bcls;
+    el.style.flex=days;
+    el.textContent = days>=3 ? SEASON[k].name : '';
+    el.title = SEASON[k].name+' '+fmtRange(r);
+    bar.appendChild(el);
+  });
+
+  // date handling
+  var d1val = document.getElementById('d1').value;
+  var haveDate = !!d1val;
+  var day1 = haveDate ? new Date(d1val+'T00:00:00') : null;
+  var diff = haveDate ? Math.floor(((new Date()).setHours(0,0,0,0) - day1.getTime())/86400000) : null;
+  // only show calendar dates for a current cycle (entered date is in the past but within this cycle's length)
+  var showDates = haveDate && diff >= 0 && diff < L;
+
+  // season cards
+  var wrap=document.getElementById('seasons'); wrap.innerHTML='';
+  order.forEach(function(k){
+    var s=SEASON[k], r=R[k];
+    var dates='';
+    if(showDates){
+      var sd=addDays(day1, r[0]-1), ed=addDays(day1, r[1]-1);
+      dates = 'Starts ~ '+fmtDate(sd)+ (r[0]===r[1] ? '' : ('  &middot;  to '+fmtDate(ed)));
+    }
+    var div=document.createElement('div');
+    div.className='s '+s.cls;
+    div.innerHTML =
+      '<div class="sh"><span class="nm">'+s.name+'</span><span class="dy">'+fmtRange(r)+'</span></div>'+
+      '<div class="sb"><div class="dates'+(showDates?' show':'')+'">'+dates+'</div>'+s.text+'</div>';
+    wrap.appendChild(div);
+  });
+
+  // today banner
+  var banner=document.getElementById('today');
+  var lblEl=document.querySelector('#today .lbl');
+  var bigEl=document.getElementById('todaySeason');
+  var metaEl=document.getElementById('todayMeta');
+  if(haveDate){
+    var diff = Math.floor(((new Date()).setHours(0,0,0,0) - day1.getTime())/86400000);
+    banner.classList.add('show');
+    if(diff < 0){
+      banner.style.background = '#2B2B2B';
+      lblEl.textContent = 'Check the date';
+      bigEl.textContent = 'That date is in the future';
+      metaEl.textContent = 'Pick the day your most recent period started.';
+    } else {
+      var dayOfCycle = diff + 1;
+      if(dayOfCycle <= L){
+        var here='w';
+        order.forEach(function(k){ if(dayOfCycle>=R[k][0] && dayOfCycle<=R[k][1]) here=k; });
+        var s=SEASON[here];
+        lblEl.textContent = 'Right now you are in';
+        banner.style.background = s.col;
+        bigEl.textContent = s.name + ' · ' + s.phase;
+        metaEl.textContent = 'Day '+dayOfCycle+' of your cycle. '+s.text;
+      } else {
+        var dueDate = addDays(day1, L);
+        lblEl.textContent = 'Heads up';
+        banner.style.background = '#2B2B2B';
+        bigEl.textContent = 'Your period is due';
+        metaEl.textContent = 'On a '+L+'-day cycle your next period was due around '+fmtDate(dueDate)+'. If it has not arrived you may be running a little late, which is common, especially when you first start menstruating. When it starts, enter that date as your new Day 1.';
+      }
+    }
+  } else {
+    banner.classList.remove('show');
+  }
+}
+
+document.getElementById('len').addEventListener('input', render);
+document.getElementById('d1').addEventListener('input', render);
+render();
+</script>
+</body>
+</html>

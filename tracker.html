@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Track Your Own Cycle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --charcoal:#2B2B2B; --coral:#FF6347; --sand:#EAE3DC;
+  --winter:#3E6188; --winter-t:#E5ECF3;
+  --spring:#4F8A52; --spring-t:#E6F0E3;
+  --summer:#FF6347; --summer-t:#FDE6E0;
+  --autumn:#C2772E; --autumn-t:#F6EAD7;
+  --head:'Montserrat',-apple-system,Segoe UI,Roboto,sans-serif;
+  --body:'Lato',-apple-system,Segoe UI,Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#e9e9e9}
+body{font-family:var(--body);color:var(--charcoal);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;margin:14px auto;background:#fff;padding:14mm 14mm;
+  box-shadow:0 8px 30px rgba(0,0,0,.18);display:flex;flex-direction:column}
+
+.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--coral);padding-bottom:7px}
+.top h1{font-family:var(--head);font-weight:800;font-size:25px;line-height:1.04}
+.top .sub{font-size:12px;color:#666;margin-top:3px}
+.top .brand{font-family:var(--head);font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9a948e;text-align:right}
+
+h2{font-family:var(--head);font-weight:800;font-size:15px;color:var(--coral);margin:16px 0 7px}
+p.lead{font-size:12.5px;line-height:1.5}
+.note{font-size:11px;line-height:1.45;color:#555}
+b{font-weight:700}
+
+/* seasons table */
+table{width:100%;border-collapse:collapse;margin-top:6px}
+.seasons th,.seasons td{border:1px solid #e2ddd6;padding:8px 10px;font-size:12px;text-align:center}
+.seasons th{font-family:var(--head);font-weight:800;font-size:11px;letter-spacing:.03em;background:#f6f3ef;color:#3a3733}
+.seasons td.s{font-family:var(--head);font-weight:800;text-align:left;font-size:12.5px}
+.seasons .yours{background:#FFF6F3}
+.seasons tr.win td.s{color:var(--winter)} .seasons tr.spr td.s{color:var(--spring)}
+.seasons tr.sum td.s{color:var(--summer)} .seasons tr.aut td.s{color:var(--autumn)}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:-1px;margin-right:6px}
+
+/* work-it-out box */
+.howbox{margin-top:12px;background:var(--sand);border-radius:9px;padding:13px 16px}
+.howbox h3{font-family:var(--head);font-weight:800;font-size:12.5px;margin-bottom:6px}
+.howbox ol{margin:0 0 0 18px;font-size:12px;line-height:1.55}
+.howbox .mine{margin-top:10px;font-size:12px;display:flex;flex-wrap:wrap;gap:18px}
+.howbox .mine span{white-space:nowrap}
+.u{display:inline-block;border-bottom:1.4px solid #b9b2a9;min-width:46px}
+
+.caveat{margin-top:14px;border-left:4px solid var(--coral);padding:4px 0 4px 12px}
+.caveat b{color:var(--coral);font-family:var(--head)}
+.caveat .t{font-size:11.5px;line-height:1.45;color:#3a3733}
+
+.foot{margin-top:auto;border-top:1.5px solid #eee;padding-top:8px;font-size:11px;color:#777;text-align:center}
+.foot b{color:var(--coral);font-family:var(--head)}
+
+/* LOG page */
+.fields{display:flex;gap:26px;margin-top:10px;font-size:12.5px;flex-wrap:wrap}
+.fields span{white-space:nowrap}
+.key{display:flex;gap:16px;margin:10px 0 4px;font-size:10.5px;font-family:var(--head);font-weight:700;color:#555}
+.key i{font-style:normal} .key .dot{margin-right:5px}
+
+.log{width:100%;border-collapse:collapse;table-layout:fixed}
+.log th{font-family:var(--head);font-weight:800;font-size:9.5px;letter-spacing:.03em;text-transform:uppercase;
+  background:#f6f3ef;color:#3a3733;border:1px solid #e2ddd6;padding:4px 6px;text-align:left}
+.log td{border:1px solid #e7e2db;height:6.4mm;padding:0 7px;font-size:10px}
+.log td.d{font-family:var(--head);font-weight:800;text-align:center;font-size:10px;color:#666;background:#faf8f6}
+.log td.en{font-size:10px;color:#bbb;letter-spacing:3px;text-align:center}
+.log tr:nth-child(7n) td{border-bottom:1.6px solid #cfc8bf}
+.log col.cD{width:9%} .log col.cE{width:17%} .log col.cS{width:11%} .log col.cN{width:63%}
+
+@page{size:A4 portrait;margin:0}
+@media print{
+  html,body{background:#fff}
+  .page{box-shadow:none;margin:0;width:210mm;height:297mm;padding:14mm;page-break-after:always}
+  .page:last-child{page-break-after:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: how to map your seasons -->
+<div class="page">
+  <div class="top">
+    <div>
+      <h1>Track Your Own Cycle</h1>
+      <div class="sub">Map the four seasons onto your cycle, then notice what is true for you.</div>
+    </div>
+    <div class="brand">Vibrant Leader<br>Academy</div>
+  </div>
+
+  <h2>Step 1 &middot; Find Day 1</h2>
+  <p class="lead"><b>Day 1</b> is the first day of proper bleeding (not light spotting). Every cycle is counted from there, up to the day before your next period starts. That total is your <b>cycle length</b>.</p>
+
+  <h2>Step 2 &middot; Find your seasons</h2>
+  <p class="note">Your cycle length changes where each season falls. Autumn (the run-up to your period) stays roughly two weeks; Spring stretches or shrinks with your length. Use the closest column, or work out your own.</p>
+  <table class="seasons">
+    <tr><th>Season</th><th>21-day cycle</th><th>28-day cycle</th><th>35-day cycle</th><th class="yours">Yours</th></tr>
+    <tr class="win"><td class="s"><span class="dot" style="background:var(--winter)"></span>Winter &middot; period</td><td>Days 1&ndash;4</td><td>Days 1&ndash;5</td><td>Days 1&ndash;5</td><td class="yours"></td></tr>
+    <tr class="spr"><td class="s"><span class="dot" style="background:var(--spring)"></span>Spring &middot; follicular</td><td>Days 5&ndash;6</td><td>Days 6&ndash;12</td><td>Days 6&ndash;19</td><td class="yours"></td></tr>
+    <tr class="sum"><td class="s"><span class="dot" style="background:var(--summer)"></span>Summer &middot; ovulation</td><td>Days 7&ndash;9</td><td>Days 13&ndash;15</td><td>Days 20&ndash;22</td><td class="yours"></td></tr>
+    <tr class="aut"><td class="s"><span class="dot" style="background:var(--autumn)"></span>Autumn &middot; luteal</td><td>Days 10&ndash;21</td><td>Days 16&ndash;28</td><td>Days 23&ndash;35</td><td class="yours"></td></tr>
+  </table>
+
+  <div class="howbox">
+    <h3>Work out yours</h3>
+    <ol>
+      <li>Count your cycle length: Day 1 to the day before your next period.</li>
+      <li>Your <b>Summer</b> (ovulation) is roughly your length <b>minus 14</b>.</li>
+      <li><b>Autumn</b> is the days after that, up to your next period.</li>
+      <li><b>Winter</b> is your period; <b>Spring</b> is the gap in between.</li>
+    </ol>
+    <div class="mine">
+      <span>My cycle length: <span class="u" style="min-width:60px"></span> days</span>
+      <span>My Summer is about day <span class="u"></span></span>
+      <span>Winter <span class="u"></span></span>
+      <span>Spring <span class="u"></span></span>
+      <span>Summer <span class="u"></span></span>
+      <span>Autumn <span class="u"></span></span>
+    </div>
+  </div>
+
+  <div class="caveat">
+    <div class="t"><b>Remember:</b> these are estimates. When you first start menstruating, cycles are often irregular and can change month to month, so do not worry if yours does not match the chart. The whole point of tracking is to discover <i>your</i> real pattern, which only you can see.</div>
+  </div>
+
+  <div class="foot"><b>Next:</b> print the log on the other side once per cycle, and fill it in a little each day.</div>
+</div>
+
+<!-- PAGE 2: monthly log -->
+<div class="page">
+  <div class="top">
+    <div>
+      <h1>My Cycle Log</h1>
+      <div class="sub">One per cycle. Jot a few words each day. After 2 to 3 cycles, look back for your pattern.</div>
+    </div>
+    <div class="brand">Vibrant Leader<br>Academy</div>
+  </div>
+
+  <div class="fields">
+    <span>Cycle start (Day 1 date): <span class="u" style="min-width:120px"></span></span>
+    <span>My usual length: <span class="u" style="min-width:60px"></span> days</span>
+  </div>
+  <div class="key">
+    <i><span class="dot" style="background:var(--winter)"></span>W Winter</i>
+    <i><span class="dot" style="background:var(--spring)"></span>Sp Spring</i>
+    <i><span class="dot" style="background:var(--summer)"></span>Su Summer</i>
+    <i><span class="dot" style="background:var(--autumn)"></span>A Autumn</i>
+    <i style="color:#999;font-weight:400">Energy: circle 1 (flat) to 5 (full)</i>
+  </div>
+
+  <table class="log">
+    <colgroup><col class="cD"><col class="cE"><col class="cS"><col class="cN"></colgroup>
+    <tr><th>Day</th><th>Energy 1&ndash;5</th><th>Season</th><th>How I felt &amp; what I noticed</th></tr>
+    <!--ROWS-->
+  </table>
+</div>
+
+<script>
+// build 35 day rows
+(function(){
+  var tbl=document.querySelector('.log');
+  var html='';
+  for(var d=1; d<=35; d++){
+    html+='<tr><td class="d">'+d+'</td><td class="en">1 &nbsp; 2 &nbsp; 3 &nbsp; 4 &nbsp; 5</td><td></td><td></td></tr>';
+  }
+  tbl.insertAdjacentHTML('beforeend', html);
+})();
+</script>
+</body>
+</html>
