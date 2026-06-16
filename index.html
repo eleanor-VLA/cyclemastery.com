@@ -371,6 +371,45 @@
   footer a{color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--coral);transition:color .2s ease}
   footer a:hover{color:var(--coral)}
 
+  /* Testimonial — LinkedIn-styled recommendation card */
+  :root{ --li-blue:#0A66C2; --li-border:#E0DFDC; --li-text:#1B1F23; --li-muted:#56687A; }
+  .li-card{
+    background:var(--white);
+    border:1px solid var(--li-border);
+    border-radius:10px;
+    padding:1.75rem 1.85rem 1.5rem;
+    max-width:720px;
+    margin:0 auto;
+    box-shadow:0 1px 3px rgba(0,0,0,0.06);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  .li-head{display:flex;align-items:flex-start;gap:0.85rem;margin-bottom:1.1rem}
+  .li-avatar{
+    width:48px;height:48px;border-radius:50%;flex-shrink:0;
+    background:var(--li-blue);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:600;font-size:1.05rem;letter-spacing:0.02em;
+  }
+  .li-id{flex:1;min-width:0}
+  .li-name{display:flex;align-items:baseline;gap:0.4rem;flex-wrap:wrap}
+  .li-name strong{font-size:1rem;font-weight:600;color:var(--li-text)}
+  .li-name .deg{font-size:0.82rem;color:var(--li-muted);font-weight:400}
+  .li-headline{font-size:0.84rem;color:var(--li-muted);line-height:1.4;margin-top:0.1rem}
+  .li-rel{font-size:0.78rem;color:var(--li-muted);margin-top:0.35rem}
+  .li-logo{flex-shrink:0;color:var(--li-blue)}
+  .li-body{font-size:0.95rem;line-height:1.6;color:var(--li-text)}
+  .li-body p + p{margin-top:0.9rem}
+  .li-foot{
+    margin-top:1.35rem;padding-top:1rem;
+    border-top:1px solid var(--li-border);
+  }
+  .li-foot a{
+    display:inline-flex;align-items:center;gap:0.45rem;
+    color:var(--li-blue);text-decoration:none;
+    font-size:0.88rem;font-weight:600;
+  }
+  .li-foot a:hover{text-decoration:underline}
+
   /* Reveal */
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
   .reveal.in{opacity:1;transform:translateY(0)}
@@ -415,7 +454,7 @@
     }
 
     /* hide things that make no sense on paper */
-    header.top, .cta-row, .meta-strip{ display:none !important; }
+    header.top, .cta-row, .meta-strip, #testimonial{ display:none !important; }
 
     /* kill animations so nothing prints faded out */
     .reveal{ opacity:1 !important; transform:none !important; }
@@ -674,6 +713,46 @@
           <p>20+ years of corporate experience across P&amp;G, Diageo, EssilorLuxottica, and others. Eleanor founded Vibrant Leader Academy after discovering the performance advantages of cycle awareness first-hand.</p>
           <p>She works with female executives and entrepreneurs across multiple geographies, translating hormonal intelligence into practical leadership advantage.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonial" class="sand-light">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">What clients say</div>
+        <h2>Delivered to the<br>women's network at <span class="accent">PwC</span>.</h2>
+      </div>
+      <p class="intro">
+        A recommendation following a Cycle Mastery session delivered to the women's network at PwC.
+      </p>
+    </div>
+
+    <div class="li-card reveal">
+      <div class="li-head">
+        <div class="li-avatar" aria-hidden="true">SL</div>
+        <div class="li-id">
+          <div class="li-name"><strong>Shenin Lebrun</strong><span class="deg">· 1st</span></div>
+          <div class="li-headline">I help Fortune 500 companies advance their high-potential women into senior leadership · Founder, Hustle &amp; Heart Consultancy · Former Nike EMEA Director</div>
+          <div class="li-rel">April 8, 2026 · Shenin was Eleanor's client</div>
+        </div>
+        <svg class="li-logo" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-label="LinkedIn">
+          <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+        </svg>
+      </div>
+      <div class="li-body">
+        <p>Working with Eleanor was a truly positive experience. Her enthusiasm, combined with deep knowledge of the topic, makes her not only inspiring but also a great partner to collaborate with.</p>
+        <p>The workshop was thoughtfully structured, practical and highly engaging. Eleanor used real-life examples that made the content immediately relatable, and within just 60 minutes, she managed to share valuable insights while also creating space for open and meaningful conversation.</p>
+        <p>What stood out most was how she brought attention to a topic that is still not discussed enough: understanding your cycle and how it can support productivity and well-being. The feedback from the women's network was overwhelmingly positive, highlighting both the relevance of the topic and the impact of her delivery.</p>
+        <p>I would highly recommend Eleanor to any organisation looking to empower their community with practical tools and fresh perspectives.</p>
+      </div>
+      <div class="li-foot">
+        <a href="https://www.linkedin.com/in/taylor-eleanor/details/recommendations/" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          See this recommendation on LinkedIn
+        </a>
       </div>
     </div>
   </div>
