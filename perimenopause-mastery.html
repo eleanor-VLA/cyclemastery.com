@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perimenopause Mastery | Vibrant Leader Academy</title>
+<meta name="description" content="A practical talk on perimenopause: how it affects work, managing symptoms, understanding HRT and speaking up for the support you need. Online or in person, from Vibrant Leader Academy.">
+<meta property="og:title" content="Perimenopause Mastery">
+<meta property="og:description" content="A practical talk on what is happening, what helps, and how to ask for it. Online or in person.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  /* Shares the Cycle Mastery tokens (fonts, colours, buttons, cards) so both pages sit in one site, with its own hero and rhythm. */
+  :root{
+    --charcoal:#2B2B2B;
+    --coral:#FF6347;
+    --coral-deep:#E84B30;
+    --coral-soft:#FFE0D6;
+    --sand:#EAE3DC;
+    --sand-light:#F5F1ED;
+    --white:#FFFFFF;
+    --muted:#6F6A65;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{
+    font-family:'Lato',sans-serif;
+    background:var(--white);
+    color:var(--charcoal);
+    line-height:1.65;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3,h4{font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:-0.01em;line-height:1.15;color:var(--charcoal)}
+  .eyebrow{
+    font-family:'Montserrat',sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--coral);
+  }
+  .container{max-width:1180px;margin:0 auto;padding:0 2rem}
+
+  /* Header */
+  header.top{
+    border-bottom:1px solid rgba(43,43,43,0.08);
+    padding:1.1rem 0;
+    background:rgba(255,255,255,0.95);
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+  }
+  header.top .row{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+  header.top .brand{
+    font-family:'Montserrat',sans-serif;
+    font-size:1.05rem;
+    font-weight:700;
+    color:var(--charcoal);
+    text-decoration:none;
+    letter-spacing:0.005em;
+  }
+  header.top .brand span{color:var(--coral);font-weight:700}
+  header.top nav a{
+    text-decoration:none;color:var(--charcoal);
+    font-family:'Montserrat',sans-serif;
+    font-size:0.85rem;letter-spacing:0.02em;font-weight:500;
+    margin-left:1.75rem;
+    transition:color .2s ease;
+  }
+  header.top nav a:hover{color:var(--coral)}
+  header.top nav{display:flex;align-items:center;margin-left:auto;margin-right:1.5rem}
+  header.top nav a.current{color:var(--coral);font-weight:700}
+  header.top .navsep{width:1px;height:16px;background:rgba(43,43,43,0.18);margin-left:1.75rem}
+  header.top .navbtn{
+    font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    background:var(--coral);color:var(--white);text-decoration:none;padding:0.65rem 1.2rem;border-radius:4px;
+    transition:background .2s ease;
+  }
+  header.top .navbtn:hover{background:var(--coral-deep)}
+
+  /* Hero: full bleed split */
+  .hero{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    min-height:540px;
+    padding:0;
+    background:var(--charcoal);
+    color:var(--white);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-text{
+    padding:3rem 3rem 3rem max(2rem, calc((100vw - 1180px)/2 + 2rem));
+    display:flex;flex-direction:column;justify-content:center;
+    position:relative;overflow:hidden;
+    width:100%;
+  }
+  .hero-text::after{
+    content:"";position:absolute;left:-120px;bottom:-120px;
+    width:400px;height:400px;border-radius:50%;
+    background:radial-gradient(circle, var(--coral) 0%, transparent 60%);
+    opacity:0.28;pointer-events:none;
+  }
+  .hero-text > *{position:relative;z-index:1}
+  .hero h1{
+    font-size:clamp(2.5rem, 4.8vw, 4rem);
+    margin:1.25rem 0 1.5rem;
+    font-weight:800;
+    line-height:1.08;
+  }
+  .hero h1{color:var(--white)}
+  .hero h1 .accent{color:var(--coral)}
+  .hero .eyebrow{color:var(--coral-soft)}
+  .hero .lede{
+    font-size:1.1rem;
+    color:rgba(255,255,255,0.82);
+    max-width:42ch;
+    border-left:3px solid var(--coral);
+    padding-left:1.25rem;
+    margin-bottom:2rem;
+    line-height:1.7;
+  }
+  .hero-photo{
+    background:url('images/peri-hero.jpg') center 22% / cover no-repeat;
+    background-color:var(--sand-light);
+    position:relative;
+    min-height:520px;
+  }
+
+  /* Buttons */
+  .cta-row{display:flex;gap:0.85rem;flex-wrap:wrap;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:0.6rem;
+    padding:1rem 1.75rem;
+    background:var(--coral);color:var(--white);
+    text-decoration:none;
+    font-family:'Montserrat',sans-serif;
+    font-size:0.85rem;letter-spacing:0.05em;font-weight:600;
+    text-transform:uppercase;
+    border:2px solid var(--coral);
+    border-radius:4px;
+    transition:all .25s ease;
+  }
+  .btn:hover{background:var(--coral-deep);border-color:var(--coral-deep);transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,99,71,0.25)}
+  .btn.ghost{background:transparent;color:var(--charcoal);border-color:var(--charcoal)}
+  .hero .btn.ghost{color:var(--white);border-color:rgba(255,255,255,0.7)}
+  .hero .btn.ghost:hover{background:var(--white);color:var(--charcoal);border-color:var(--white)}
+  .btn.ghost:hover{background:var(--charcoal);color:var(--white);box-shadow:0 8px 20px rgba(43,43,43,0.2)}
+  .btn .arrow{transition:transform .2s ease}
+  .btn:hover .arrow{transform:translateX(3px)}
+
+  /* Sections */
+  section{padding:4rem 0;position:relative}
+  section.sand{background:var(--sand)}
+  section.sand-light{background:var(--sand-light)}
+  .section-head{
+    display:grid;grid-template-columns:1fr 1.8fr;gap:3rem;
+    margin-bottom:2.5rem;align-items:start;
+  }
+  .section-head h2{font-size:clamp(2rem, 3.5vw, 2.8rem);margin-top:0.75rem;font-weight:700}
+  .section-head h2 .accent{color:var(--coral)}
+  .section-head .intro{font-size:1.05rem;color:var(--muted);max-width:50ch;line-height:1.75}
+
+  /* Stats: four across, then 2 x 2. Never 3 + 1. */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+  .stat{
+    padding:2.25rem 1.5rem;
+    background:var(--white);
+    border-radius:8px;
+    border-top:4px solid var(--coral);
+    display:flex;flex-direction:column;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .stat:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(43,43,43,0.08)}
+  .stat .num{
+    font-family:'Montserrat',sans-serif;
+    font-size:clamp(2.4rem, 4vw, 3.4rem);
+    line-height:1;
+    color:var(--charcoal);
+    letter-spacing:-0.02em;
+    font-weight:800;
+    white-space:nowrap;
+  }
+  .stat .num sup{font-size:0.5em;vertical-align:super;color:var(--coral);font-weight:700;margin-left:0.05em}
+  .stat .label{
+    margin-top:1rem;
+    font-size:0.98rem;
+    color:var(--charcoal);
+    line-height:1.55;
+  }
+  .src{margin-top:auto;padding-top:1rem;font-size:0.78rem;color:var(--muted);line-height:1.4}
+  .stats-secondary{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;
+    margin-top:1.25rem;
+  }
+  .fact{
+    padding:1.5rem 1.5rem 1.4rem;
+    background:var(--sand-light);
+    border-radius:8px;
+    border-left:4px solid var(--coral);
+    display:flex;flex-direction:column;gap:0.35rem;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .fact:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(43,43,43,0.08)}
+  .fact b{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;line-height:1.3}
+  .fact span.t{font-size:0.95rem;line-height:1.55}
+  .sources-note{margin-top:2rem;font-size:0.82rem;color:var(--muted);font-style:italic;letter-spacing:0.01em}
+
+  /* The talk: four parts */
+  .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+  .phase{
+    padding:2rem 1.5rem;
+    background:var(--white);
+    border-radius:8px;
+    position:relative;
+    display:flex;flex-direction:column;
+    border-top:4px solid var(--coral);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .phase:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(43,43,43,0.1)}
+  .phase .days{
+    font-family:'Montserrat',sans-serif;
+    font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;
+    font-weight:600;color:var(--muted);
+  }
+  .phase .season{
+    font-family:'Montserrat',sans-serif;
+    font-size:1.4rem;
+    margin-top:0.6rem;
+    font-weight:700;
+    color:var(--charcoal);
+    letter-spacing:-0.01em;
+    line-height:1.2;
+  }
+  .phase .body{
+    margin-top:1.1rem;
+    font-size:0.95rem;
+    line-height:1.6;
+    color:var(--charcoal);
+  }
+  .banner{
+    margin-top:1.5rem;
+    border-radius:8px;
+    aspect-ratio:16/9;
+    background:url('images/peri-banner.jpg') center 50% / cover no-repeat;
+    background-color:var(--sand-light);
+  }
+
+  /* Outcomes */
+  .outcomes{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .outcome-col{
+    padding:2.75rem 2rem;
+    background:var(--white);
+    border-radius:8px;
+    border-top:4px solid var(--coral);
+  }
+  .outcome-col.featured{background:var(--charcoal);color:var(--white);border-top-color:var(--coral)}
+  .outcome-col.featured h3{color:var(--white)}
+  .outcome-col h3{
+    font-size:1.4rem;font-weight:700;
+    margin-bottom:1.5rem;
+    padding-bottom:1rem;
+    border-bottom:1px solid rgba(43,43,43,0.15);
+    color:var(--charcoal);
+  }
+  .outcome-col.featured h3{border-bottom-color:rgba(255,255,255,0.2)}
+  .outcome-list{list-style:none}
+  .outcome-list li{
+    padding:1.1rem 0;
+    border-bottom:1px solid rgba(43,43,43,0.08);
+    display:flex;gap:1rem;
+    font-size:1rem;
+    line-height:1.55;
+  }
+  .outcome-col.featured .outcome-list li{border-bottom-color:rgba(255,255,255,0.15)}
+  .outcome-list li:last-child{border-bottom:none}
+  .outcome-list li::before{
+    content:"→";
+    color:var(--coral);
+    font-weight:700;
+    flex-shrink:0;
+    font-size:1.05rem;
+  }
+
+  /* EDI + Facilitator */
+  .credibility-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .edi-card{
+    padding:3rem 2rem;
+    background:var(--white);
+    border-radius:8px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .edi-card h3{
+    font-family:'Montserrat',sans-serif;
+    font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--coral);font-weight:600;
+    margin-bottom:1.25rem;
+  }
+  .edi-card h4{
+    font-size:1.65rem;font-weight:700;
+    margin-bottom:1.25rem;line-height:1.2;
+    color:var(--charcoal);
+  }
+  .edi-card h4 .accent{color:var(--coral)}
+  .edi-card p{font-size:1rem;line-height:1.75;color:var(--charcoal)}
+  .edi-card p + p{margin-top:1rem}
+  .edi-card .disclaimer{font-size:0.85rem;color:var(--muted);margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid rgba(43,43,43,0.1);line-height:1.6}
+
+  .facilitator-card{
+    background:var(--white);
+    border-radius:8px;
+    overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .facilitator-photo{
+    width:100%;
+    aspect-ratio:16/11;
+    background:url('images/peri-about.jpg') center 25% / cover no-repeat;
+    background-color:var(--sand-light);
+  }
+  .facilitator-body{padding:2.5rem 2rem}
+  .facilitator-body h3{
+    font-family:'Montserrat',sans-serif;
+    font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--coral);font-weight:600;
+    margin-bottom:0.75rem;
+  }
+  .facilitator-body h4{
+    font-size:1.65rem;font-weight:700;
+    margin-bottom:0.5rem;line-height:1.2;
+    color:var(--charcoal);
+  }
+  .facilitator-body .title{
+    font-family:'Montserrat',sans-serif;
+    font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--muted);font-weight:500;
+    margin-bottom:1.25rem;
+  }
+  .facilitator-body p{font-size:1rem;line-height:1.75;color:var(--charcoal)}
+
+  /* Final CTA */
+  .final{
+    background:var(--charcoal);color:var(--white);
+    padding:4.5rem 0;
+    text-align:center;position:relative;overflow:hidden;
+  }
+  .final::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 110%, var(--coral) 0%, transparent 55%);
+    opacity:0.35;
+  }
+  .final > .container{position:relative;z-index:1}
+  .final .eyebrow{color:var(--coral-soft)}
+  .final h2{
+    font-size:clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight:700;
+    margin:1rem auto 1.5rem;
+    max-width:26ch;
+    line-height:1.15;
+    color:var(--white);
+  }
+  .final h2 .accent{color:var(--coral)}
+  .final p{max-width:54ch;margin:0 auto 2.5rem;font-size:1.1rem;opacity:0.9;line-height:1.7}
+  .final .btn{background:var(--coral);color:var(--white);border-color:var(--coral)}
+  .final .btn:hover{background:var(--white);color:var(--charcoal);border-color:var(--white)}
+  .final .cta-row{justify-content:center}
+
+  /* Sources + footer */
+  .source-list{padding:3rem 0 2rem;background:var(--white);border-top:1px solid rgba(43,43,43,0.08)}
+  .source-list h2{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;color:var(--coral);margin-bottom:1rem;font-family:'Montserrat',sans-serif}
+  .source-list ol{padding-left:1.2rem;display:flex;flex-direction:column;gap:0.5rem;font-size:0.82rem;color:var(--muted);line-height:1.55}
+  .source-list a{color:var(--muted)}
+  .source-list a:hover{color:var(--coral)}
+  footer{padding:2.5rem 0;font-size:0.88rem;color:var(--muted);background:var(--white);border-top:1px solid rgba(43,43,43,0.08)}
+  footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;align-items:center}
+  footer a{color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--coral);transition:color .2s ease}
+  footer a:hover{color:var(--coral)}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  .sister{padding:3.5rem 0;background:var(--white)}
+  .sister-card{
+    display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;
+    background:var(--sand-light);border-left:4px solid var(--coral);border-radius:8px;
+    padding:2rem 2.25rem;text-decoration:none;color:var(--charcoal);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .sister-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(43,43,43,0.08)}
+  .sister-card h3{font-size:1.5rem;margin:0.4rem 0 0.35rem}
+  .sister-card p{margin:0;color:var(--muted)}
+  .sister-card:hover .btn.ghost{background:var(--charcoal);color:var(--white)}
+
+  /* Responsive */
+  @media (max-width: 900px){
+    .hero{grid-template-columns:1fr}
+    .hero-text{padding:3.5rem 2rem;max-width:none;margin:0}
+    .facilitator-photo{min-height:340px}
+    .hero-photo{min-height:420px;order:-1}
+    .section-head{grid-template-columns:1fr;gap:1rem;margin-bottom:2.5rem}
+    .stats,.stats-secondary{grid-template-columns:1fr 1fr}
+    .phases{grid-template-columns:1fr 1fr}
+    .outcomes{grid-template-columns:1fr}
+    .credibility-grid{grid-template-columns:1fr}
+    header.top nav{display:none}
+    header.top .navbtn{margin-left:auto}
+  }
+  @media (max-width: 540px){
+    .container{padding:0 1.25rem}
+    .hero-text{padding:3rem 1.5rem}
+    section{padding:3.5rem 0}
+    .stats,.stats-secondary{gap:0.75rem}
+    .stat{padding:1.5rem 1.1rem}
+    .stat .num{font-size:2.1rem}
+    .stat .label{font-size:0.88rem}
+    .stats-secondary{grid-template-columns:1fr}
+    .phases{grid-template-columns:1fr}
+    .cta-row{flex-direction:column;align-items:stretch}
+    .cta-row .btn{justify-content:center}
+    .sister-card{padding:1.5rem}
+    .sister-card .btn{width:100%;justify-content:center}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .stat:hover,.phase:hover,.fact:hover,.btn:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="container">
+    <div class="row">
+      <a href="https://www.vibrantleaderacademy.com" class="brand">Vibrant Leader <span>Academy</span></a>
+      <nav>
+        <a href="https://www.cyclemastery.com">Cycle Mastery</a>
+        <a href="#top" class="current" aria-current="page">Perimenopause Mastery</a>
+        <span class="navsep" aria-hidden="true"></span>
+        <a href="#research">Research</a>
+        <a href="#talk">The talk</a>
+        <a href="#outcomes">Outcomes</a>
+      </nav>
+      <a href="https://calendar.app.google/ri5nxtnNbmPo8JLS6" target="_blank" rel="noopener" class="navbtn">Book a call</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-text">
+    <div class="eyebrow">Talk · Online or in person</div>
+    <h1>Perimenopause <span class="accent">Mastery</span>.</h1>
+    <p class="lede">A practical talk on what is happening, what helps, and how to ask for it.</p>
+    <div class="cta-row">
+      <a href="https://calendar.app.google/ri5nxtnNbmPo8JLS6" target="_blank" rel="noopener" class="btn">Book a discovery call <span class="arrow">→</span></a>
+      <a href="#research" class="btn ghost">See the research</a>
+    </div>
+  </div>
+  <div class="hero-photo" role="img" aria-label="Eleanor Taylor in a coral and charcoal striped dress, smiling at the camera with a pen and notes in hand"></div>
+</section>
+
+<section id="case" class="sand">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">The business case</div>
+        <h2>A transition most workplaces have <span class="accent">no plan</span> for.</h2>
+      </div>
+      <p class="intro">
+        For many women, perimenopause symptoms land in the years of peak experience, seniority and responsibility. It goes well beyond hot flushes; sleep, concentration, mood, confidence and energy can all change, and the women living through it often have no language for it at work, no policy to point to, and a GP appointment that may not go the way they hope.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Why this matters</div>
+        <h2>The research<br>is <span class="accent">consistent</span>.</h2>
+      </div>
+      <p class="intro">UK surveys of women aged 40 to 60.</p>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat">
+        <div class="num"><span data-count="73">73</span><sup>%</sup></div>
+        <div class="label">of working women aged 40 to 60 have had menopause symptoms.</div>
+        <div class="src">CIPD, 2023 (1)</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span data-count="53">53</span><sup>%</sup></div>
+        <div class="label">could recall a time symptoms kept them from going into work.</div>
+        <div class="src">CIPD, 2023 (1)</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span data-count="27">27</span><sup>%</sup></div>
+        <div class="label">say menopause has hurt their career progression.</div>
+        <div class="src">CIPD, 2023 (2)</div>
+      </div>
+      <div class="stat">
+        <div class="num">1 in 10</div>
+        <div class="label">left a job because of menopause symptoms.</div>
+        <div class="src">Fawcett Society, 2022 (3)</div>
+      </div>
+    </div>
+
+    <div class="stats-secondary reveal">
+      <div class="fact"><b>24% have workplace support</b><span class="t">Say their employer has a menopause policy or support in place.</span><span class="src">CIPD, 2023 (4)</span></div>
+      <div class="fact"><b>Only 4 in 10 offered HRT in good time</b><span class="t">From a UK survey of 4,000+ menopausal women.</span><span class="src">Fawcett Society, 2022 (3)</span></div>
+      <div class="fact"><b>30% gave their real reason for time off</b><span class="t">Of women who took time off for menopause.</span><span class="src">Fawcett Society, 2022 (5)</span></div>
+      <div class="fact"><b>Four years median, sometimes a decade or more</b><span class="t">Perimenopause varies widely.</span><span class="src">Pharmaceutical Journal (6)</span></div>
+    </div>
+
+    <p class="sources-note">Sources are listed at the foot of the page.</p>
+  </div>
+</section>
+
+<section id="talk" class="sand">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">The talk</div>
+        <h2>What the talk<br><span class="accent">covers</span>.</h2>
+      </div>
+      <p class="intro">From what is happening, to what helps, to how to ask for it.</p>
+    </div>
+
+    <div class="phases reveal">
+      <div class="phase">
+        <div class="days">Understand</div>
+        <div class="season">What is happening</div>
+        <p class="body">What perimenopause is, how long it lasts, and the symptoms that get missed.</p>
+      </div>
+      <div class="phase">
+        <div class="days">At work</div>
+        <div class="season">How it shapes the working day</div>
+        <p class="body">Concentration, energy, confidence and career decisions.</p>
+      </div>
+      <div class="phase">
+        <div class="days">Manage</div>
+        <div class="season">Symptoms, treatment and HRT</div>
+        <p class="body">Practical ways to manage symptoms, and a clear guide to HRT and other options.</p>
+      </div>
+      <div class="phase">
+        <div class="days">Advocate</div>
+        <div class="season">Speaking up and being heard</div>
+        <p class="body">Preparing for a GP appointment, raising it with a manager, asking for adjustments.</p>
+      </div>
+    </div>
+    <div class="banner reveal" role="img" aria-label="Eleanor Taylor relaxing on a sofa with a cup of tea, in a bright knitted cardigan"></div>
+  </div>
+</section>
+
+<section id="outcomes">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">What changes</div>
+        <h2>For attendees,<br>and for the <span class="accent">organisation</span>.</h2>
+      </div>
+      <p class="intro">Personal clarity for the individual, and a clear signal for the business.</p>
+    </div>
+
+    <div class="outcomes reveal">
+      <div class="outcome-col">
+        <h3>What attendees gain</h3>
+        <ul class="outcome-list">
+          <li>A clear, plain-language understanding of symptoms and HRT options</li>
+          <li>Practical ways to manage symptoms through the working week</li>
+          <li>Language and confidence to ask for what helps</li>
+        </ul>
+      </div>
+      <div class="outcome-col featured">
+        <h3>Organisational outcomes</h3>
+        <ul class="outcome-list">
+          <li>Experienced women who feel supported, and stay</li>
+          <li>Managers who understand it and talk about it openly</li>
+          <li>A concrete step towards a menopause-friendly workplace</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="credibility" class="sand">
+  <div class="container">
+    <div class="credibility-grid reveal">
+      <div class="edi-card">
+        <h3>EDI relevance</h3>
+        <h4>Menopause is a <span class="accent">health equity</span> issue.</h4>
+        <p>CIPD found the career impact is greater for women with a disability or long-term condition, and for ethnic minority women (2).</p>
+        <p>This talk helps close the gap between stated inclusion commitments and the lived experience of women in their forties and fifties.</p>
+        <p class="disclaimer">Educational, not medical advice. Treatment decisions, including HRT, are best made with a clinician.</p>
+      </div>
+      <div class="facilitator-card">
+        <div class="facilitator-photo" role="img" aria-label="Eleanor Taylor in a coral dress, holding her glasses"></div>
+        <div class="facilitator-body">
+          <h3>About the facilitator</h3>
+          <h4>Eleanor Taylor</h4>
+          <div class="title">Founder, Vibrant Leader Academy</div>
+          <p>20+ years in corporate roles at P&amp;G, Diageo, EssilorLuxottica and others. Eleanor works with female executives and entrepreneurs, translating hormonal intelligence into practical leadership advantage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sister">
+  <div class="container">
+    <a class="sister-card" href="https://www.cyclemastery.com">
+      <div>
+        <div class="eyebrow">Also from Vibrant Leader Academy</div>
+        <h3>Cycle Mastery</h3>
+        <p>The sister talk on hormonal intelligence for high-performing women.</p>
+      </div>
+      <span class="btn ghost">Explore Cycle Mastery <span class="arrow">→</span></span>
+    </a>
+  </div>
+</section>
+
+<section id="book" class="final">
+  <div class="container">
+    <div class="eyebrow">Bring it into your organisation</div>
+    <h2>Start the conversation in your <span class="accent">workplace</span>.</h2>
+    <p>A standalone talk, part of a wellbeing or EDI programme, or a session for your women's network. In person or virtual.</p>
+    <div class="cta-row">
+      <a href="https://calendar.app.google/ri5nxtnNbmPo8JLS6" target="_blank" rel="noopener" class="btn">Book a discovery call <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="source-list">
+  <div class="container">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://www.cipd.org/uk/knowledge/reports/menopause-workplace-experiences">CIPD, Menopause in the workplace: Employee experiences in 2023</a> (survey of 2,000+ employed women aged 40 to 60 in the UK).</li>
+      <li><a href="https://cipd.org/ae/about/press-releases/quarter-of-women-menopause-negative-impact-on-career">CIPD press release: over a quarter of women say menopause has had a negative impact on their career progression</a>.</li>
+      <li><a href="https://www.equallyours.org.uk/fawcett-society-report-menopause-and-the-workplace/">Fawcett Society, Menopause and the Workplace, 2022</a> (survey of 4,000+ women).</li>
+      <li><a href="https://diversityandinclusioninlaw.com/read-menopause-in-the-workplace/">Summary of CIPD key findings on workplace menopause policy and support</a>.</li>
+      <li><a href="https://content.britsafe.org/publications/safety-management-magazine/safety-management-magazine/2022/employers-must-challenge-stigma-of-menopause-says-new-report/">Safety Management, reporting the Fawcett Society findings on disclosure of time off</a>.</li>
+      <li><a href="https://pharmaceutical-journal.com/article/ld/perimenopause-symptoms-and-management">Pharmaceutical Journal, Perimenopause: symptoms and management</a>. The UK average age of menopause (51) and perimenopause starting two to eight years earlier are also reported by <a href="https://huffingtonpost.co.uk/entry/menopause-start-average-age_uk_67af23c8e4b0513a8d76c7b6">HuffPost UK</a>, citing the NHS.</li>
+    </ol>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div>© Vibrant Leader Academy. All rights reserved.</div>
+      <div>
+        <a href="https://www.vibrantleaderacademy.com">vibrantleaderacademy.com</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.cyclemastery.com">Cycle Mastery</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:info@vibrantleaderacademy.com">info@vibrantleaderacademy.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal-on-scroll with a safety fallback, as on the Cycle Mastery page.
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(root){
+    if (reduce) return;
+    root.querySelectorAll('[data-count]').forEach(function(el){
+      var end = +el.getAttribute('data-count'), t0 = null;
+      function step(t){ if(!t0) t0 = t; var k = Math.min((t - t0) / 900, 1); el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); }
+      el.textContent = '0'; requestAnimationFrame(step);
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); countUp(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    setTimeout(() => document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in')), 2000);
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
